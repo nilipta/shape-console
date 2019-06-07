@@ -1,0 +1,29 @@
+#include "Shapes.h"
+
+Shape::Shape(double len = 0, double heightIn= 0, double rad = 0):
+	length(len), height(heightIn), radius(rad)
+{
+	std::cout << "SHAPE CONSTRUCTOR CALLED!!" << std::endl;
+}
+
+/*Dimensions Shape::entryDialog(){
+
+	//Dimensions tempDimension;    //return struct...
+	std::cout << "Enter the length of the shape = " << std::endl;
+	double entryLen;
+	cin >> entryLen;
+	//tempDimension.lenS = entryLen; 	//return struct...
+	//tempDimension.HeightS = 1.0;		//return struct...
+	//tempDimension.radS = 2.0;         //return struct...
+
+	return tempDimension;
+} */
+
+void Shape::entryDialog(){
+	std::cout << "Enter the length of the shape = " << std::endl;
+	double entryLen;
+	cin >> entryLen;
+	std::cout << "Entered the length of the shape = "<< entryLen << std::endl;
+}
+
+

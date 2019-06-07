@@ -1,0 +1,21 @@
+#include "Shapes.h"
+
+Shape::Shape():
+{
+	std::cout << "SHAPE CONSTRUCTOR CALLED!!" << std::endl;
+}
+
+Shape::Shape()
+{
+	std::cout << "SHAPE CONSTRUCTOR CALLED!!" << std::endl;
+}
+
+
+void Shape::entryDialog(){
+	std::cout << "Enter the length of the shape = " << std::endl;
+	double entryLen;
+	std::cin >> entryLen;
+	std::cout << "Entered the length of the shape = "<< entryLen << std::endl;
+}
+
+

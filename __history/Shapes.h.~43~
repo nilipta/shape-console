@@ -1,0 +1,16 @@
+#ifndef SHAPES_H
+#define SHAPES_H
+
+class Shape{
+	public:
+		Shape(const std::string shapeName){};
+
+		void setName();
+		std::string getname();
+		virtual void area(){};
+	protected:
+		//struct Dimensions{double lenS, double HeightS, double radS};
+
+};
+
+#endif

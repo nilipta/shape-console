@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.361,=C:\Users\UZIBDA5\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.950,D:\Projects\Induction\drawFigures\Square.h=D:\Projects\Induction\drawFigures\File6.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.955,D:\Projects\Induction\drawFigures\Project1PCH1.h=C:\Users\UZIBDA5\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.951,D:\Projects\Induction\drawFigures\ShapeHandler.cpp=D:\Projects\Induction\drawFigures\File1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.468,D:\Projects\Induction\drawFigures\Menu.h=D:\Projects\Induction\drawFigures\Project1PCH1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.365,=C:\Users\UZIBDA5\Documents\Embarcadero\Studio\Projects\File1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.056,=D:\Projects\Induction\drawFigures\File4.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.416,=D:\Projects\Induction\drawFigures\File8.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.413,D:\Projects\Induction\drawFigures\Rectangle.cpp=D:\Projects\Induction\drawFigures\File1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.964,D:\Projects\Induction\drawFigures\Menu.cpp=D:\Projects\Induction\drawFigures\File1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.706,D:\Projects\Induction\drawFigures\Shapes.cpp=D:\Projects\Induction\drawFigures\File1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.561,=D:\Projects\Induction\drawFigures\File3.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.189,=D:\Projects\Induction\drawFigures\File2.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.600,=D:\Projects\Induction\drawFigures\File2.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.078,D:\Projects\Induction\drawFigures\gtyd.cpp=D:\Projects\Induction\drawFigures\circle.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.141,D:\Projects\Induction\drawFigures\Project1.cbproj=C:\Users\UZIBDA5\Documents\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.823,=D:\Projects\Induction\drawFigures\File7.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.542,D:\Projects\Induction\drawFigures\Circle.cpp=D:\Projects\Induction\drawFigures\gtyd.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.702,D:\Projects\Induction\drawFigures\Square.cpp=D:\Projects\Induction\drawFigures\File3.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.733,D:\Projects\Induction\drawFigures\circle.cpp=D:\Projects\Induction\drawFigures\File2.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.996,D:\Projects\Induction\drawFigures\File1.cpp=D:\Projects\Induction\drawFigures\FileHandle.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.049,=D:\Projects\Induction\drawFigures\File1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.144,=D:\Projects\Induction\drawFigures\File1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.419,=D:\Projects\Induction\drawFigures\File1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.286,D:\Projects\Induction\drawFigures\Rectangle.h=D:\Projects\Induction\drawFigures\File8.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.475,D:\Projects\Induction\drawFigures\File1.h=D:\Projects\Induction\drawFigures\FileHandle.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.470,D:\Projects\Induction\drawFigures\Circle.h=D:\Projects\Induction\drawFigures\File7.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.257,=D:\Projects\Induction\drawFigures\File6.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.999,D:\Projects\Induction\drawFigures\Shapehandler.h=D:\Projects\Induction\drawFigures\File1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.546,D:\Projects\Induction\drawFigures\Shapes.h=D:\Projects\Induction\drawFigures\File2.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.231,D:\Projects\Induction\drawFigures\ShapeHandler.h=D:\Projects\Induction\drawFigures\File1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.789,=D:\Projects\Induction\drawFigures\File1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.764,=D:\Projects\Induction\drawFigures\File1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.106,=D:\Projects\Induction\drawFigures\File1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.608,=D:\Projects\Induction\drawFigures\File1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.006,D:\Projects\Induction\drawFigures\File1.cpp=C:\Users\UZIBDA5\Documents\Embarcadero\Studio\Projects\File1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.526,D:\Projects\Induction\drawFigures\Triangle.cpp=D:\Projects\Induction\drawFigures\File4.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.440,=D:\Projects\Induction\drawFigures\File5.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.654,D:\Projects\Induction\drawFigures\Triangle.h=D:\Projects\Induction\drawFigures\File5.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.897,=D:\Projects\Induction\drawFigures\File1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.324,D:\Projects\Induction\drawFigures\main.cpp=D:\Projects\Induction\drawFigures\File1.cpp</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Square.cpp"/>
+    <File Path="Square.h"/>
+    <File Path="Triangle.cpp"/>
+    <File Path="Triangle.h"/>
+    <File Path="Rectangle.cpp"/>
+    <File Path="Rectangle.h"/>
+    <File Path="Circle.h"/>
+    <File Path="Circle.cpp"/>
+    <File Path="main.cpp"/>
+    <File Path="Menu.cpp"/>
+    <File Path="Menu.h"/>
+    <File Path="ShapeHandler.cpp"/>
+    <File Path="ShapeHandler.h"/>
+    <File Path="Shapes.cpp"/>
+    <File Path="Shapes.h"/>
+    <File Path="FileHandle.cpp"/>
+    <File Path="FileHandle.h"/>
+  </ProjectSortOrder>
+</BorlandProject>

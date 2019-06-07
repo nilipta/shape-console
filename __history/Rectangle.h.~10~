@@ -1,0 +1,17 @@
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
+
+class Rectangle:public Shape{
+	public:
+		Rectangle(std::string strLine);
+		double area();
+		double perimeter();
+		static bool setParams(std::string str,Shape& rect);
+	private:
+		double base;
+		double length;
+		double height;
+		double radius;
+};
+
+#endif
