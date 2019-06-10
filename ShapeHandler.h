@@ -11,13 +11,16 @@
 #include "Rectangle.cpp"
 #include "Square.h"
 #include "Square.cpp"
+#include "Triangle.h"
+#include "Triangle.cpp"
 
 
 enum E_ShapeID
 {
   e_Circle = 0,
   e_Rectangle,
-  e_Square
+  e_Square,
+  e_Triangle
 };
 
 class ShapeHandler{

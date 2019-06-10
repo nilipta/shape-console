@@ -79,13 +79,13 @@ bool Rectangle::setParams(std::string str, Shape& rect){
 			tempStr.clear();
 		}
 		vectorRectParams.push_back(commaSeparatedVal);
-		std::cout << "Rectangle perameter = "<< commaSeparatedVal << std::endl;
+		std::cout << "Rectangle parameter = "<< commaSeparatedVal << std::endl;
 	}
 
 	try{
     	if( !std::isnan(std::stod(vectorRectParams[1]))  && !std::isnan(std::stod(vectorRectParams[2])) )
 		{
-			std::cout << "(OK) object will be created ()()()()()"<< std::endl;
+			std::cout <<"(OK) object is to be created (-..-)"<< std::endl;
 			return true;
 		}
 	}
@@ -114,8 +114,6 @@ void Rectangle::getArea(){
 bool Rectangle::getVerification(std::string type, std::string nameParam = "", double param1 = 0, double param2 = 0){
 	if(param1 == length && param2 == height && type==shapeType)
 	{
-		std::cout<<"param1 = " << param1 << " length = " << length << std::endl;
-		std::cout<<"param1 = " << param2 << " length = " << height << std::endl;
 		std::cout<<"The get verification MATCHED!!!!!!!" << std::endl;
         return true;
 	}

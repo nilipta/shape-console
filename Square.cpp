@@ -77,7 +77,7 @@ bool Square::setParams(std::string str, Shape& rect){
 	try{
     	if( !std::isnan(std::stod(vectorSqrParams[1]))  )
 		{
-			std::cout << "(OK) object will be created ()()()()()"<< std::endl;
+			std::cout <<"(OK) object is to be created (-..-)"<< std::endl;
 			return true;
 		}
 	}

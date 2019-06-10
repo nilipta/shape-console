@@ -17,36 +17,41 @@ bool Menu::startOp(){
 	  A) Press <1> to draw a circle\n\
 	  B) Press <2> to draw a rectangle\n\
 	  C) Press <3> to draw a Square\n\
-	  E) Press <4> to view all diagrams\n\
-	  F) Press <5> to delete a Shape\n\
-	  G) Press <6> to Commit changes to file system\n\
+	  D) Press <4> to draw a Triangle\n\
+	  E) Press <5> to view all diagrams\n\
+	  F) Press <6> to delete a Shape\n\
+	  G) Press <7> to Commit changes to file system\n\
 	  H) Press <another number> to Quit from system = " << std::endl;
       	while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n');}
 		std::cin >> choiceEnter;
 		switch(choiceEnter){
 			case 1:
 				std::cout << "A circle is going to draw.." << std::endl;
-			   //	shapeHandler.createShape(0);
+				   //shapeHandler.createShape(e_Circle);
 				break;
 			case 2:
 				std::cout << "A rectangle is going to draw.." << std::endl;
-			   //	shapeHandler.createShape(1);
+					//shapeHandler.createShape(e_Rectangle);
 				break;
 			case 3:
 				std::cout << "A Square is going to draw.." << std::endl;
-				//shapeHandler.createShape(2);
+					//shapeHandler.createShape(e_Square);
 				break;
 			case 4:
+				std::cout << "A Square is going to draw.." << std::endl;
+					//shapeHandler.createShape(e_Square);
+				break;
+			case 5:
 				std::cout << "Showing all Shapes and proporties" << std::endl;
 				shapeHandler.printObjectDetails();
 				break;
-			case 5:
-				std::cout << "You choose to delete .... \nPress <1> to delete a circle\nPress <2> to delete a Rectangle\nPress <3> to delete a Square\nPress <Other> throw SKIP----\n" << std::endl;
+			case 6:
+				std::cout << "You choose to delete .... \nPress <1> to delete a circle\nPress <2> to delete a Rectangle\nPress <3> to delete a Square\nPress <4> to delete a Triangle\nPress <Other> throw SKIP----\n" << std::endl;
 				{
 					int resp = shapeHandler.editShapeObj();
 				}
 				break;
-			case 6:
+			case 7:
 				std::cout << "You choose to Commit all changes\n" << std::endl;
 				{
 					shapeHandler.saveLatestInfo();
@@ -59,5 +64,5 @@ bool Menu::startOp(){
 				}
 		}
 
-	} while(choiceEnter > 0 && choiceEnter <=6);
+	} while(choiceEnter > 0 && choiceEnter <=7);
 }

@@ -19,6 +19,7 @@ Circle::Circle(std::string strLine)
 			tempStr.clear();
 		}
 		vectorCircleParams.push_back(commaSeparatedVal);
+		std::cout <<"Square perimeter = " << commaSeparatedVal<< std::endl;
 	}
 
 	if( !std::isnan(std::stod(vectorCircleParams[1])) )
@@ -85,7 +86,7 @@ bool Circle::setParams(std::string str, Shape& objCircle)
 	try{
     	if(!std::isnan(std::stod(vectorCircleParams[1]))  && !std::isnan(std::stod(vectorCircleParams[2])))
 		{
-			std::cout << "(OK) object will be created ()()()()()"<< std::endl;
+			std::cout <<"(OK) object is to be created (-..-)"<< std::endl;
 			return true;
 		}
 	}

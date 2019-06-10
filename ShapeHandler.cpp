@@ -60,7 +60,22 @@ Shape* ShapeHandler::createShape(std::string strLine, E_ShapeID shapeId)
 					}
 				}
 				break;
-	
+		case e_Triangle:
+               std::cout << "ShapeHandler -> TRIANGLE()" << std::endl;
+				{
+					Shape* shapeObj = new Triangle(strLine);
+					bool isValidated = Triangle::setParams(strLine, *shapeObj);
+					if(isValidated){
+						return shapeObj;
+					}
+					else
+					{
+						delete shapeObj;
+						shapeObj = nullptr;
+                     	return shapeObj;
+					}
+				}
+				break;
 	}
 }
 
@@ -97,6 +112,15 @@ void ShapeHandler::readFile()
 			{
 				//std::cout<<"square configuration = " << std::endl;
 				Shape* shapePtr = createShape(tempFileString, e_Square);
+				if(shapePtr != nullptr){
+					shapesVector.push_back(shapePtr);
+				}
+			}
+
+			else if(tempFileString.find("triangle") < tempFileString.max_size())
+			{
+				//std::cout<<"square configuration = " << std::endl;
+				Shape* shapePtr = createShape(tempFileString, e_Triangle);
 				if(shapePtr != nullptr){
 					shapesVector.push_back(shapePtr);
 				}
@@ -170,6 +194,7 @@ int ShapeHandler::editShapeObj(){
                 std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
 			}
 			break;
+
 		case 2: std::cout <<"Rectangle is going to be deleted....." << std::endl;
 			{
             	std::string rectNameIn;
@@ -194,6 +219,7 @@ int ShapeHandler::editShapeObj(){
                 std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
 			}
 			break;
+
 		case 3: std::cout <<"Square is going to be deleted....." << std::endl;
 			{
             	std::string sqrNameIn;
@@ -207,6 +233,31 @@ int ShapeHandler::editShapeObj(){
 				for(int i = 0; i< shapesVector.size() ; i++)
 				{
 					if(shapesVector[i]->getVerification("square", sqrNameIn, length))
+					{
+						shapesVector.erase (shapesVector.begin()+i);
+						break;
+					}
+				}
+                std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+			}
+			break;
+
+		case 4: std::cout <<"Triangle is going to be deleted....." << std::endl;
+			{
+            	std::string TriangleIn;
+				double base, height;
+				std::cout <<"Enter name of the Triangle <!Without space + minimum 2 character> = " << std::endl;
+				std::cin >> TriangleIn;
+				std::cout <<"Enter length of the Triangle = " << std::endl;
+				std::cin >> base;
+				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); base = 0;}
+				std::cout <<"Enter breadth of the Triangle = " << std::endl;
+				std::cin >> height;
+				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); height = 0;}
+
+				for(int i = 0; i< shapesVector.size() ; i++)
+				{
+					if(shapesVector[i]->getVerification("triangle", TriangleIn, base, height))
 					{
 						shapesVector.erase (shapesVector.begin()+i);
 						break;

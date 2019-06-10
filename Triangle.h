@@ -1,16 +1,20 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
 
-class Triangle{
+class Triangle:public Shape{
 	public:
-	protected:
-		virtual double area();
-		virtual double perimeter();
+		Triangle(std::string strLine);
+		void area();
+		void perimeter();
+		static bool setParams(std::string str,Shape& tri);
+		std::string getInfo();
+		void getArea();
+		bool getVerification(std::string type, std::string nameParam, double param1, double param2);
 	private:
 		double base;
-		double length;
 		double height;
-		double radius;
+		std::string shapeName;
+		std::string shapeType;
 };
 
 #endif
