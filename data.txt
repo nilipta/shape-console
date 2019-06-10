@@ -1,6 +1,4 @@
-circle 2.0 3.5 mycircle
-circle 3.0 5.2 
-circle 1.5 9.2 Circle1
-reactangle 2.0 3.2 rectangle
-square 2.0 newSquare
-reactangle 1.0 1.2 rectangle
+circle 4.000000 3.500000 mycircle1
+rectangle 4.000000 7.800000 rectangle3.9
+square 4.000000 mySquare
+circle 1.000000 1.000000 No_Name

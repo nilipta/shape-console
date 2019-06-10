@@ -2,6 +2,7 @@
 
 ShapeHandler::ShapeHandler()
 {
+	{std::cout << "Constructing ShapeHandler Object " << std::endl;}
 	configContent.erase();
 	this->readFile();
 }
@@ -121,22 +122,21 @@ void ShapeHandler::readFile()
 	 }
 }
 
-void ShapeHandler::addConfigTemplate()
-{
-std::string freshConfig = "circle 2.0 3.5 mycircle\n\
-circle 3.0 5.2\n\
-circle 1.5 9.2 Circle1\n\
-reactangle 2.0 3.2 rectangle\n\
-square 2.0 newSquare";
-
-	this->writeFile(freshConfig);
-}
-
-void ShapeHandler::writeFile(std::string& str){
-	std::cout << "-- str --\n" << str <<"-- str --\n";
+void ShapeHandler::saveLatestInfo(){
+	std::cout << "-- inside file writting --\n";
 	std::ofstream configOut;
+	std::string allRefreshedConfigs;
 	configOut.open ("data.txt", std::ofstream::out);
-	configOut << str;
+
+     for(int i = 0; i< shapesVector.size(); i++)
+	{
+	   std::string tempSingleCOnfig = shapesVector[i]->getInfo();
+	   allRefreshedConfigs.append(tempSingleCOnfig);
+	}
+	std::cout << "--------------- Here goes the latest config -------------------\n";
+	std::cout << allRefreshedConfigs << std::endl;
+	std::cout << "---------------------------------------------------------------\n";
+	configOut << allRefreshedConfigs;
 	configOut.close();
 }
 
@@ -159,12 +159,14 @@ int ShapeHandler::editShapeObj(){
 			{
 				std::string circleNameIn;
 				double radIn, centerIn;
-				std::cout <<"Enter name of the circle = " << std::endl;
+				std::cout <<"Enter name of the circle <!Without space + minimum 2 character> = " << std::endl;
 				std::cin >> circleNameIn;
 				std::cout <<"Enter Radius of the circle = " << std::endl;
 				std::cin >> radIn;
+				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); radIn = 0;}
 				std::cout <<"Enter Center of the circle = " << std::endl;
 				std::cin >> centerIn;
+				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); centerIn = 0;}
 				//int counter = 0;
 				/*for(std::vector<Shape*>::iterator it = shapesVector.begin(); it != shapesVector.end(); ++it ){
 					**it->getVerification(circleNameIn, radIn, centerIn);
@@ -175,6 +177,7 @@ int ShapeHandler::editShapeObj(){
 				{
 					if(shapesVector[i]->getVerification("circle", circleNameIn, radIn, centerIn))
 					{
+                        std::cout << "Erasing this entry " << std::endl;
 						shapesVector.erase (shapesVector.begin()+i);
 						break;
 					}
@@ -186,12 +189,14 @@ int ShapeHandler::editShapeObj(){
 			{
             	std::string rectNameIn;
 				double length, breadth;
-				std::cout <<"Enter name of the Rectangle = " << std::endl;
+				std::cout <<"Enter name of the Rectangle <!Without space + minimum 2 character> = " << std::endl;
 				std::cin >> rectNameIn;
 				std::cout <<"Enter length of the Rectangle = " << std::endl;
 				std::cin >> length;
+				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); length = 0;}
 				std::cout <<"Enter breadth of the Rectangle = " << std::endl;
 				std::cin >> breadth;
+				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); breadth = 0;}
 
 				for(int i = 0; i< shapesVector.size() ; i++)
 				{
@@ -208,10 +213,11 @@ int ShapeHandler::editShapeObj(){
 			{
             	std::string sqrNameIn;
 				double length;
-				std::cout <<"Enter name of the Square = " << std::endl;
+				std::cout <<"Enter name of the Square <!Without space + minimum 2 character> = " << std::endl;
 				std::cin >> sqrNameIn;
 				std::cout <<"Enter length of the Square = " << std::endl;
 				std::cin >> length;
+				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); length = 0;}
 
 				for(int i = 0; i< shapesVector.size() ; i++)
 				{

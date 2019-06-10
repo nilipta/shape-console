@@ -8,8 +8,9 @@ class Menu {
 	public:
 		Menu(){};
 		void start();
+		bool startOp();
 	private:
-		ShapeHandler shapeHandler;
+
 };
 #endif
 

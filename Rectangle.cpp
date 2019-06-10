@@ -8,7 +8,15 @@ Rectangle::Rectangle(std::string strLine){
 	while(tempStr.size() > 0)
 	{
 		commaSeparatedVal = tempStr.substr(0,      tempStr.find(" ")   );
-		tempStr = tempStr.erase(  tempStr.find(commaSeparatedVal),    (commaSeparatedVal.size()+1)     );
+		if(tempStr.size() > (commaSeparatedVal.size()+1))
+		{
+			tempStr = tempStr.erase(  tempStr.find(commaSeparatedVal),    (commaSeparatedVal.size()+1)     );
+		}
+		else
+		{
+			tempStr.clear();
+			//break;
+		}
 		vectorRectParams.push_back(commaSeparatedVal);
 	}
 
@@ -22,9 +30,24 @@ Rectangle::Rectangle(std::string strLine){
     	height =  std::stod(vectorRectParams[2]);
 	}
 
-	if( vectorRectParams[3].size() > 0 )
+	if( vectorRectParams.size() > 3)
 	{
-    	shapeName =  vectorRectParams[3];
+		if(vectorRectParams[3].size() > 1)
+		{
+			shapeName = vectorRectParams[3];
+			std::cout << "The name is " << vectorRectParams[3].size() <<  shapeName << std::endl;
+		}
+
+		else
+		{
+			shapeName = "No_Name";
+			std::cout << "The name is " << shapeName << std::endl;
+		}
+	}
+	else
+	{
+		shapeName = "No_Name";
+		std::cout << "The name is " << shapeName << std::endl;
 	}
 
 }
@@ -60,13 +83,15 @@ bool Rectangle::setParams(std::string str, Shape& rect){
 	return false;
 }
 
-void Rectangle::getInfo(){
+std::string Rectangle::getInfo(){
 	std::cout<<"####################################" << std::endl;
 	std::cout<<"The information of Rectangle is  =     " << std::endl;
 	std::cout<<"The length		of Rectangle is  =     " << length <<std::endl;
 	std::cout<<"The height 		of Rectangle is  =     " << height <<std::endl;
 	std::cout<<"The Name 		of Rectangle is  =     " << shapeName <<std::endl;
 	std::cout<<"-----------------------------------" << std::endl;
+	std::string thisInfo = shapeType + " " +std::to_string(length)+ " " + std::to_string(height) + " " + shapeName + "\n";
+	return thisInfo;
 }
 
 void Rectangle::getArea(){

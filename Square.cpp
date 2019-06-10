@@ -8,16 +8,39 @@ Square::Square(std::string strLine){
 	while(tempStr.size() > 0)
 	{
 		commaSeparatedVal = tempStr.substr(0,      tempStr.find(" ")   );
-		tempStr = tempStr.erase(  tempStr.find(commaSeparatedVal),    (commaSeparatedVal.size()+1)     );
+		if(tempStr.size() > (commaSeparatedVal.size()+1))
+		{
+			tempStr = tempStr.erase(  tempStr.find(commaSeparatedVal),    (commaSeparatedVal.size()+1)     );
+		}
+		else
+		{
+			tempStr.clear();
+			//break;
+		}
 		vectorSqrParams.push_back(commaSeparatedVal);
 	}
 
 	if( !std::isnan(std::stod(vectorSqrParams[1])) )
 		length =  std::stod(vectorSqrParams[1]);
 
-	if( vectorSqrParams[2].size() > 0 )
+	if( vectorSqrParams.size() > 2)
 	{
-		shapeName =  vectorSqrParams[2];
+		if(vectorSqrParams[2].size() > 1)
+		{
+			shapeName = vectorSqrParams[2];
+			std::cout << "The name is " << vectorSqrParams[2].size() <<  shapeName << std::endl;
+		}
+
+		else
+		{
+			shapeName = "No_Name";
+			std::cout << "The name is " << shapeName << std::endl;
+		}
+	}
+	else
+	{
+		shapeName = "No_Name";
+		std::cout << "The name is " << shapeName << std::endl;
 	}
 }
 
@@ -52,12 +75,14 @@ bool Square::setParams(std::string str, Shape& rect){
 	return false;
 }
 
-void Square::getInfo(){
+std::string Square::getInfo(){
 	std::cout<<"####################################" << std::endl;
 	std::cout<<"The information of Square is  =     " << std::endl;
 	std::cout<<"The length		of Square is  =     " << length <<std::endl;
 	std::cout<<"The Name 		of Square is  =     " << shapeName <<std::endl;
 	std::cout<<"-----------------------------------" << std::endl;
+	std::string thisInfo = shapeType+ " " + std::to_string(length)+ " " + shapeName + "\n";
+	return thisInfo;
 }
 
 void Square::getArea(){

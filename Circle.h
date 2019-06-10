@@ -11,7 +11,7 @@ class Circle:public Shape
 		void area();
 		double perimeter();
 		static bool setParams(std::string str,Shape& circle);
-		void getInfo();
+		std::string getInfo();
 		void getArea();
 		bool getVerification(std::string type, std::string nameParam, double param1, double param2);
 	private:

@@ -22,17 +22,18 @@ enum E_ShapeID
 
 class ShapeHandler{
 	public:
-        ShapeHandler();
+		ShapeHandler();
+		~ShapeHandler(){std::cout << "Destructing ShapeHandler Object " << std::endl;}
 		Shape* createShape(std::string strLine, E_ShapeID shapeId);
 		void printObjectDetails();
 		int editShapeObj();
+		void saveLatestInfo();
 	private:
       std::vector<Shape*> shapesVector;
 	  void readFile();
 	  std::string configContent;
 	  int shapeNos;
-	  void addConfigTemplate();
-	  void writeFile(std::string& str);
+
 };
 
 
