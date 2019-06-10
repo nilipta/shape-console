@@ -62,16 +62,29 @@ bool Square::setParams(std::string str, Shape& rect){
 	while(tempStr.size() > 0)
 	{
 		commaSeparatedVal = tempStr.substr(0,      tempStr.find(" ")   );
-		tempStr = tempStr.erase(  tempStr.find(commaSeparatedVal),    (commaSeparatedVal.size()+1)     );
+		if(tempStr.size() > (commaSeparatedVal.size()+1))
+		{
+			tempStr = tempStr.erase(  tempStr.find(commaSeparatedVal),    (commaSeparatedVal.size()+1)     );
+		}
+		else
+		{
+			tempStr.clear();
+		}
 		vectorSqrParams.push_back(commaSeparatedVal);
 		std::cout << "Square perimeter = "<< commaSeparatedVal << std::endl;
 	}
 
-	if( !std::isnan(std::stod(vectorSqrParams[1]))  )
-	{
-   		std::cout << "(OK) object will be created ()()()()()"<< std::endl;
-		return true;
+	try{
+    	if( !std::isnan(std::stod(vectorSqrParams[1]))  )
+		{
+			std::cout << "(OK) object will be created ()()()()()"<< std::endl;
+			return true;
+		}
 	}
+	catch(...){
+    	return false;
+	}
+
 	return false;
 }
 

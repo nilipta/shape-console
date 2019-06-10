@@ -74,15 +74,6 @@ void ShapeHandler::readFile()
 		while (std::getline(config, tempFileString))
 		{
 			std::cout << "=========================== NewLine ========================" << std::endl;
-			//file open is success so now read each line till eof
-			//std::getline(config, tempFileString);
-			//std::cout << tempFileString << std::endl;
-
-			//read line
-
-			///line read is success now parse the line to check the shape type
-			///shape type is found now create shape and call its set paramas
-			//Shape* shapePtr = createShape(E_ShapeID);
 
 			if(tempFileString.find("circle") < tempFileString.max_size())
 			{
@@ -116,9 +107,7 @@ void ShapeHandler::readFile()
 			///store in vector and continue reading the next line
 			//shapesVector.push_back(shapePtr);
 		}
-		 // get file size using buffer's members
-		 //close file buffer
-		 config.close();
+		config.close();
 	 }
 }
 
@@ -144,10 +133,6 @@ void ShapeHandler::printObjectDetails()
 {
 	std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
 	for_each(shapesVector.begin(), shapesVector.end(), printDetail);
-	//for(int i = 0; i< shapesVector.size(); i++)
-	//{
-	//   shapesVector[i].getInfo();
-	//}
 }
 
 int ShapeHandler::editShapeObj(){
@@ -167,7 +152,7 @@ int ShapeHandler::editShapeObj(){
 				std::cout <<"Enter Center of the circle = " << std::endl;
 				std::cin >> centerIn;
 				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); centerIn = 0;}
-				//int counter = 0;
+
 				/*for(std::vector<Shape*>::iterator it = shapesVector.begin(); it != shapesVector.end(); ++it ){
 					**it->getVerification(circleNameIn, radIn, centerIn);
 					//!(shapesVector[counter].getVerification(circleNameIn, radIn, centerIn)

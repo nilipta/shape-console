@@ -15,8 +15,6 @@ class Shape{
 	protected:
 	private:
 		std::string objectName;
-		//struct Dimensions{double lenS, double HeightS, double radS};
-
 };
 
 #endif

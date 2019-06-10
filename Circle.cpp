@@ -89,7 +89,7 @@ bool Circle::setParams(std::string str, Shape& objCircle)
 			return true;
 		}
 	}
-	catch()
+	catch(...)
 	{
 		return false;
 	}
