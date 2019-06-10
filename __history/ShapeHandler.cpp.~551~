@@ -179,7 +179,6 @@ void ShapeHandler::editShapeObj(){
 					break;
 					}
 				}
-                std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
 			}
 			break;
 		case 2: std::cout <<"Rectangle is going to be deleted....." << std::endl;

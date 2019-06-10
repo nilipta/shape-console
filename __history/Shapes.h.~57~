@@ -7,13 +7,13 @@ class Shape{
 		Shape(const std::string shapeName){};
 
 		void setName(){std::cout<<"Base class set name called"<<std::endl;}
-		std::string getname(){return objectName;}
+		std::string getname(){return ObjectName};
 		virtual void getInfo() = 0;
 		virtual void getArea() = 0;
-		virtual bool getVerification(std::string nameParam, double param1, double param2) = 0;
+		virtual bool getVerification() = 0;
 	protected:
 	private:
-		std::string objectName;
+		std::string ObjectName;
 		//struct Dimensions{double lenS, double HeightS, double radS};
 
 };

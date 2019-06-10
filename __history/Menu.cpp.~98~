@@ -32,8 +32,8 @@ void Menu::start(){
 				shapeHandler.printObjectDetails();
 				break;
 			case 5:
-				std::cout << "You choose to delete .... \nPress <1> to delete a circle\nPress <2> to delete a Rectangle\nPress <3> to delete a Square\nPress <Other> throw SKIP----\n" << std::endl;
-				shapeHandler.editShapeObj();
+				std::cout << "You choose to delete .... Edit \nPress <1> to edit a circle\nPress <2> to edit a Rectangle\nPress <3> to edit a Square\nPress <Other> throw SKIP----\n" << std::endl;
+				//shapeHandler.createShape(5);
 				break;
 			default:
 				std::cout << "X-X-X-X Your option did not match X-X-X-X" << std::endl;

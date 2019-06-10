@@ -63,13 +63,3 @@ void Square::getArea(){
 	std::cout<<"The area of Square this = " << length * length << std::endl;
 }
 
-bool Square::getVerification(std::string nameParam = "", double param1 = 0, double param2 = 0){
-	if(param1 == length)
-	{
-        return true;
-	}
-	else
-	{
-    	return false;
-	}
-}

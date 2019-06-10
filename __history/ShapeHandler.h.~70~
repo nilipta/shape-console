@@ -23,13 +23,13 @@ enum E_ShapeID
 class ShapeHandler{
 	public:
         ShapeHandler();
-		Shape* createShape(std::string strLine, E_ShapeID shapeId);
+		Shape* createShape(std::string strLine, E_ShapeID shapeid);
 		void printObjectDetails();
-		void editShapeObj();
 	private:
       std::vector<Shape*> shapesVector;
 	  void readFile();
 	  std::string configContent;
+	  bool checkValidConfig();
 	  int shapeNos;
 	  void addConfigTemplate();
 	  void writeFile(std::string& str);
@@ -37,10 +37,8 @@ class ShapeHandler{
 
 
 class printingAllDetails{
-	public:
 	void operator() (Shape* ob){
 		ob->getInfo();
-		ob->getArea();
 	}
 } printDetail;
 

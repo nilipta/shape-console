@@ -64,7 +64,7 @@ void Square::getArea(){
 }
 
 bool Square::getVerification(std::string nameParam = "", double param1 = 0, double param2 = 0){
-	if(param1 == length)
+	if(param1 == length && param2 == height)
 	{
         return true;
 	}

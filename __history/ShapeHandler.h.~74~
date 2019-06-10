@@ -23,7 +23,7 @@ enum E_ShapeID
 class ShapeHandler{
 	public:
         ShapeHandler();
-		Shape* createShape(std::string strLine, E_ShapeID shapeId);
+		Shape* createShape(std::string strLine, E_ShapeID shapeid);
 		void printObjectDetails();
 		void editShapeObj();
 	private:

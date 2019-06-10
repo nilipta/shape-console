@@ -8,8 +8,6 @@ class Rectangle:public Shape{
 		void perimeter();
 		static bool setParams(std::string str,Shape& rect);
 		void getInfo();
-		void getArea();
-		bool getVerification(std::string nameParam, double param1, double param2);
 	private:
 		double length;
 		double height;

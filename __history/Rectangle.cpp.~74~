@@ -10,6 +10,8 @@ Rectangle::Rectangle(std::string strLine){
 		tempStr = tempStr.erase(  tempStr.find(commaSeparatedVal),    (commaSeparatedVal.size()+1)     );
 		vectorRectParams.push_back(commaSeparatedVal);
 	}
+	std::cout << "End of loop = " << vectorRectParams[1] << std::endl;
+	std::cout << "End of loop = " << vectorRectParams[2] << std::endl;
 
 	if( !std::isnan(std::stod(vectorRectParams[1])) )
 	{
@@ -38,7 +40,7 @@ void Rectangle::perimeter(){
 }
 
 bool Rectangle::setParams(std::string str, Shape& rect){
-	//std::cout << "Rectangle config = \n............>\n"<< str << "\n............."<< std::endl;
+	std::cout << "Rectangle config = \n............>\n"<< str << "\n............."<< std::endl;
 	std::vector<std::string> vectorRectParams;
 
 	std::string tempStr = str;
@@ -48,7 +50,6 @@ bool Rectangle::setParams(std::string str, Shape& rect){
 		commaSeparatedVal = tempStr.substr(0,      tempStr.find(" ")   );
 		tempStr = tempStr.erase(  tempStr.find(commaSeparatedVal),    (commaSeparatedVal.size()+1)     );
 		vectorRectParams.push_back(commaSeparatedVal);
-		std::cout << "Rectangle perimeter = "<< commaSeparatedVal << std::endl;
 	}
 
 	if( !std::isnan(std::stod(vectorRectParams[1]))  && !std::isnan(std::stod(vectorRectParams[2])) )
@@ -65,20 +66,9 @@ void Rectangle::getInfo(){
 	std::cout<<"The length		of Rectangle is  =     " << length <<std::endl;
 	std::cout<<"The height 		of Rectangle is  =     " << height <<std::endl;
 	std::cout<<"The Name 		of Rectangle is  =     " << shapeName <<std::endl;
-	std::cout<<"-----------------------------------" << std::endl;
+	std::cout<<"####################################" << std::endl;
 }
 
 void Rectangle::getArea(){
 	std::cout<<"The area of Rectangle is = " << length * height << std::endl;
-}
-
-bool Rectangle::getVerification(std::string nameParam = "", double param1 = 0, double param2 = 0){
-	if(param1 == length && param2 == height)
-	{
-        return true;
-	}
-	else
-	{
-    	return false;
-	}
 }

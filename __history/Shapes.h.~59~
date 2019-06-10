@@ -10,7 +10,7 @@ class Shape{
 		std::string getname(){return objectName;}
 		virtual void getInfo() = 0;
 		virtual void getArea() = 0;
-		virtual bool getVerification(std::string nameParam, double param1, double param2) = 0;
+		virtual bool getVerification() = 0;
 	protected:
 	private:
 		std::string objectName;

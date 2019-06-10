@@ -175,11 +175,10 @@ void ShapeHandler::editShapeObj(){
 				{
 					if(shapesVector[i]->getVerification(circleNameIn, radIn, centerIn))
 					{
-					shapesVector.erase (shapesVector.begin()+i);
+					shapesVector.erase (shapesVector.begin()+5);
 					break;
 					}
 				}
-                std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
 			}
 			break;
 		case 2: std::cout <<"Rectangle is going to be deleted....." << std::endl;

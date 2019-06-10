@@ -73,7 +73,7 @@ void Rectangle::getArea(){
 }
 
 bool Rectangle::getVerification(std::string nameParam = "", double param1 = 0, double param2 = 0){
-	if(param1 == length && param2 == height)
+	if(param1 == radius && param2 == center)
 	{
         return true;
 	}

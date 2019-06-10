@@ -106,7 +106,7 @@ bool Circle::getVerification(std::string nameParam = "", double param1 = 0, doub
 	}
 	else
 	{
-        std::cout<<"The get verification NOT  MATCHED!!!!!!!" << std::endl;
+        std::cout<<"The get verification MATCHED!!!!!!!" << std::endl;
     	return false;
 	}
 }

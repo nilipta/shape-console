@@ -165,21 +165,11 @@ void ShapeHandler::editShapeObj(){
 				std::cin >> radIn;
 				std::cout <<"Enter Center of the circle = " << std::endl;
 				std::cin >> centerIn;
-				//int counter = 0;
-				/*for(std::vector<Shape*>::iterator it = shapesVector.begin(); it != shapesVector.end(); ++it ){
+				int counter = 0;
+				for(std::vector<Shape*>::iterator it = shapesVector.begin(); it != shapesVector.end(); ++it ){
 					**it->getVerification(circleNameIn, radIn, centerIn);
 					//!(shapesVector[counter].getVerification(circleNameIn, radIn, centerIn)
-				} */
-
-				for(int i = 0; i< shapesVector.size() ; i++)
-				{
-					if(shapesVector[i]->getVerification(circleNameIn, radIn, centerIn))
-					{
-					shapesVector.erase (shapesVector.begin()+i);
-					break;
-					}
 				}
-                std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
 			}
 			break;
 		case 2: std::cout <<"Rectangle is going to be deleted....." << std::endl;

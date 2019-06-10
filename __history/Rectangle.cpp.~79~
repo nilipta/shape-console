@@ -71,14 +71,3 @@ void Rectangle::getInfo(){
 void Rectangle::getArea(){
 	std::cout<<"The area of Rectangle is = " << length * height << std::endl;
 }
-
-bool Rectangle::getVerification(std::string nameParam = "", double param1 = 0, double param2 = 0){
-	if(param1 == length && param2 == height)
-	{
-        return true;
-	}
-	else
-	{
-    	return false;
-	}
-}

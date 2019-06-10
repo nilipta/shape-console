@@ -30,7 +30,7 @@ void Square::perimeter(){
 }
 
 bool Square::setParams(std::string str, Shape& rect){
-	//std::cout << "Square config = \n............>\n"<< str << "\n............."<< std::endl;
+	std::cout << "Square config = \n............>\n"<< str << "\n............."<< std::endl;
 	std::vector<std::string> vectorSqrParams;
 
 	std::string tempStr = str;
@@ -63,13 +63,3 @@ void Square::getArea(){
 	std::cout<<"The area of Square this = " << length * length << std::endl;
 }
 
-bool Square::getVerification(std::string nameParam = "", double param1 = 0, double param2 = 0){
-	if(param1 == length)
-	{
-        return true;
-	}
-	else
-	{
-    	return false;
-	}
-}
