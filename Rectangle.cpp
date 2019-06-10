@@ -61,7 +61,8 @@ void Rectangle::perimeter(){
 	std::cout << "Rectangle perimeter"<< std::endl;
 }
 
-bool Rectangle::setParams(std::string str, Shape& rect){
+//bool Rectangle::setParams(std::string str, Shape& rect){
+bool Rectangle::setParams(std::string str){
 	//std::cout << "Rectangle config = \n............>\n"<< str << "\n............."<< std::endl;
 	std::vector<std::string> vectorRectParams;
 

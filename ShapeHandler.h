@@ -28,8 +28,9 @@ class ShapeHandler{
 		ShapeHandler();
 		~ShapeHandler(){std::cout << "Destructing ShapeHandler Object " << std::endl;}
 		Shape* createShape(std::string strLine, E_ShapeID shapeId);
+		void addShape(E_ShapeID shapeId, std::string, double , double);
+		int editShapeObj(E_ShapeID shapeId, std::string, double , double);
 		void printObjectDetails();
-		int editShapeObj();
 		void saveLatestInfo();
 	private:
       std::vector<Shape*> shapesVector;

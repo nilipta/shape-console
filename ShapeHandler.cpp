@@ -7,78 +7,6 @@ ShapeHandler::ShapeHandler()
 	this->readFile();
 }
 
-Shape* ShapeHandler::createShape(std::string strLine, E_ShapeID shapeId)
-{
-	switch(shapeId)
-	{
-		case e_Circle:
-				std::cout << "ShapeHandler -> CIRCLE()" << std::endl;
-				{
-					Shape* shapeObj = new Circle(strLine);
-					//shapeObj->dynamic_cast().getInfo();
-					bool isValidated = Circle::setParams(strLine, *shapeObj);
-					if(isValidated){
-						return shapeObj;
-					}
-					else
-					{
-                        delete shapeObj;
-						shapeObj = nullptr;
-						return shapeObj;
-					}
-				}
-			break;
-		case e_Rectangle:
-				std::cout << "ShapeHandler -> RECTANGLE()" << std::endl;
-				{
-					Shape* shapeObj = new Rectangle(strLine);
-					bool isValidated = Rectangle::setParams(strLine, *shapeObj);
-					if(isValidated){
-						return shapeObj;
-					}
-					else
-					{
-						delete shapeObj;
-						shapeObj = nullptr;
-                     	return shapeObj;
-					}
-				}
-				break;
-		case e_Square:
-				std::cout << "ShapeHandler -> SQUARE()" << std::endl;
-				{
-					Shape* shapeObj = new Square(strLine);
-					bool isValidated = Square::setParams(strLine, *shapeObj);
-					if(isValidated){
-						return shapeObj;
-					}
-					else
-					{
-						delete shapeObj;
-						shapeObj = nullptr;
-                     	return shapeObj;
-					}
-				}
-				break;
-		case e_Triangle:
-               std::cout << "ShapeHandler -> TRIANGLE()" << std::endl;
-				{
-					Shape* shapeObj = new Triangle(strLine);
-					bool isValidated = Triangle::setParams(strLine, *shapeObj);
-					if(isValidated){
-						return shapeObj;
-					}
-					else
-					{
-						delete shapeObj;
-						shapeObj = nullptr;
-                     	return shapeObj;
-					}
-				}
-				break;
-	}
-}
-
 void ShapeHandler::readFile()
 {
 	std::cout << "File reading Initializing.....(Loading).........."<<std::endl;
@@ -90,7 +18,7 @@ void ShapeHandler::readFile()
 		{
 			std::cout << "=========================== NewLine ========================" << std::endl;
 
-			if(tempFileString.find("circle") < tempFileString.max_size())
+			if(tempFileString.find("circle") < tempFileString.find(" "))
 			{
 				//std::cout<<"Circle configuration = " << std::endl;
 				Shape* shapePtr = createShape(tempFileString, e_Circle);
@@ -99,7 +27,7 @@ void ShapeHandler::readFile()
 				}
 			}
 
-			else if(tempFileString.find("rectangle") < tempFileString.max_size())
+			else if(tempFileString.find("rectangle") < tempFileString.find(" "))
 			{
 				//std::cout<<"Rectangle configuration = " << std::endl;
 				Shape* shapePtr = createShape(tempFileString, e_Rectangle);
@@ -108,7 +36,7 @@ void ShapeHandler::readFile()
 				}
 			}
 
-			else if(tempFileString.find("square") < tempFileString.max_size())
+			else if(tempFileString.find("square") < tempFileString.find(" "))
 			{
 				//std::cout<<"square configuration = " << std::endl;
 				Shape* shapePtr = createShape(tempFileString, e_Square);
@@ -117,7 +45,7 @@ void ShapeHandler::readFile()
 				}
 			}
 
-			else if(tempFileString.find("triangle") < tempFileString.max_size())
+			else if(tempFileString.find("triangle") < tempFileString.find(" "))
 			{
 				//std::cout<<"square configuration = " << std::endl;
 				Shape* shapePtr = createShape(tempFileString, e_Triangle);
@@ -135,31 +63,131 @@ void ShapeHandler::readFile()
 	 }
 }
 
-void ShapeHandler::saveLatestInfo(){
-	std::cout << "-- inside file writting --\n";
-	std::ofstream configOut;
-	std::string allRefreshedConfigs;
-	configOut.open ("data.txt", std::ofstream::out);
-
-     for(int i = 0; i< shapesVector.size(); i++)
-	{
-	   std::string tempSingleCOnfig = shapesVector[i]->getInfo();
-	   allRefreshedConfigs.append(tempSingleCOnfig);
-	}
-	std::cout << "--------------- Here goes the latest config -------------------\n";
-	std::cout << allRefreshedConfigs << std::endl;
-	std::cout << "---------------------------------------------------------------\n";
-	configOut << allRefreshedConfigs;
-	configOut.close();
-}
-
-void ShapeHandler::printObjectDetails()
+Shape* ShapeHandler::createShape(std::string strLine, E_ShapeID shapeId)
 {
-	std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
-	for_each(shapesVector.begin(), shapesVector.end(), printDetail);
+	switch(shapeId)
+	{
+		case e_Circle:
+				std::cout << "ShapeHandler -> CIRCLE()" << std::endl;
+				{
+					Shape* shapeObj = new Circle(strLine);
+					//shapeObj->dynamic_cast().getInfo();
+					bool isValidated = Circle::setParams(strLine);
+					if(isValidated){
+						return shapeObj;
+					}
+					else
+					{
+                        delete shapeObj;
+						shapeObj = nullptr;
+						return shapeObj;
+					}
+				}
+			break;
+		case e_Rectangle:
+				std::cout << "ShapeHandler -> RECTANGLE()" << std::endl;
+				{
+					Shape* shapeObj = new Rectangle(strLine);
+					bool isValidated = Rectangle::setParams(strLine);
+					if(isValidated){
+						return shapeObj;
+					}
+					else
+					{
+						delete shapeObj;
+						shapeObj = nullptr;
+                     	return shapeObj;
+					}
+				}
+				break;
+		case e_Square:
+				std::cout << "ShapeHandler -> SQUARE()" << std::endl;
+				{
+					Shape* shapeObj = new Square(strLine);
+					bool isValidated = Square::setParams(strLine);
+					if(isValidated){
+						return shapeObj;
+					}
+					else
+					{
+						delete shapeObj;
+						shapeObj = nullptr;
+                     	return shapeObj;
+					}
+				}
+				break;
+		case e_Triangle:
+               std::cout << "ShapeHandler -> TRIANGLE()" << std::endl;
+				{
+					Shape* shapeObj = new Triangle(strLine);
+					bool isValidated = Triangle::setParams(strLine);
+					if(isValidated){
+						return shapeObj;
+					}
+					else
+					{
+						delete shapeObj;
+						shapeObj = nullptr;
+                     	return shapeObj;
+					}
+				}
+				break;
+	}
 }
 
-int ShapeHandler::editShapeObj(){
+void ShapeHandler::addShape(E_ShapeID shapeId, std::string shapeNameIn, double param1, double param2 = 0)
+{
+	std::string stringParams;
+	switch(shapeId)
+	{
+		case e_Circle:	std::cout <<"Circle is going to be Added....." << std::endl;
+				{
+					stringParams =  ("circle "+std::to_string(param1)+" "+std::to_string(param2)+" "+shapeNameIn);
+					Shape* shapeObj = new Triangle(  stringParams  );
+					bool isValidated = Triangle::setParams(stringParams);
+					if(isValidated){
+						shapesVector.push_back(shapeObj);
+					}
+					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+				}
+			break;
+		case e_Rectangle:  std::cout <<"Rectangle is going to be Added....." << std::endl;
+				{
+                	stringParams =  ("rectangle "+std::to_string(param1)+" "+std::to_string(param2)+" "+shapeNameIn);
+					Shape* shapeObj = new Triangle(  stringParams  );
+					bool isValidated = Triangle::setParams(stringParams);
+					if(isValidated){
+						shapesVector.push_back(shapeObj);
+					}
+					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+				}
+			break;
+		case e_Square:  std::cout <<"Square is going to be Added....." << std::endl;
+				{
+                	stringParams =  ("square "+std::to_string(param1)+" "+shapeNameIn);
+					Shape* shapeObj = new Triangle(  stringParams  );
+					bool isValidated = Triangle::setParams(stringParams);
+					if(isValidated){
+						shapesVector.push_back(shapeObj);
+					}
+					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+				}
+			break;
+		case e_Triangle:  std::cout <<"Triangle is going to be Added....." << std::endl;
+				{
+                	stringParams =  ("triangle "+std::to_string(param1)+" "+std::to_string(param2)+" "+shapeNameIn);
+					Shape* shapeObj = new Triangle(  stringParams  );
+					bool isValidated = Triangle::setParams(stringParams);
+					if(isValidated){
+						shapesVector.push_back(shapeObj);
+					}
+					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+				}
+			break;
+	}
+}
+
+/*int ShapeHandler::editShapeObj(){
 	int editChoice;
 	std::cin >> editChoice;
 	switch(editChoice)
@@ -182,11 +210,11 @@ int ShapeHandler::editShapeObj(){
 					//!(shapesVector[counter].getVerification(circleNameIn, radIn, centerIn)
 				} */
 
-				for(int i = 0; i< shapesVector.size() ; i++)
+/*				for(int i = 0; i< shapesVector.size() ; i++)
 				{
 					if(shapesVector[i]->getVerification("circle", circleNameIn, radIn, centerIn))
 					{
-                        std::cout << "Erasing this entry " << std::endl;
+						std::cout << "Erasing this entry " << std::endl;
 						shapesVector.erase (shapesVector.begin()+i);
 						break;
 					}
@@ -269,6 +297,91 @@ int ShapeHandler::editShapeObj(){
 		default: std::cout <<"SKIPPING------------------------" << std::endl;
 	}
 	return 0;
+}*/
+
+int ShapeHandler::editShapeObj(E_ShapeID shapeId, std::string shapeNameIn, double param1, double param2 = 0)
+{
+	std::cout <<"IN ShapeHandler::editShapeObj(...." << std::endl;
+	std::string stringShapeType;
+   	switch(shapeId)
+	{
+		case e_Circle:	std::cout <<"Circle is going to be deleted....." << std::endl;
+				{
+					for(int i = 0; i< shapesVector.size() ; i++)
+					{
+						if(shapesVector[i]->getVerification("circle", shapeNameIn, param1, param2))
+						{
+							std::cout << "Erasing this entry " << std::endl;
+							shapesVector.erase (shapesVector.begin()+i);
+							break;
+						}
+					}
+					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+				}
+			break;
+		case e_Rectangle:  std::cout <<"Rectangle is going to be deleted....." << std::endl;
+				{
+					for(int i = 0; i< shapesVector.size() ; i++)
+					{
+						if(shapesVector[i]->getVerification("rectangle", shapeNameIn, param1, param2))
+						{
+							shapesVector.erase (shapesVector.begin()+i);
+							break;
+						}
+					}
+					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+				}
+			break;
+		case e_Square:  std::cout <<"Square is going to be deleted....." << std::endl;
+				{
+					for(int i = 0; i< shapesVector.size() ; i++)
+					{
+						if(shapesVector[i]->getVerification("square", shapeNameIn, param1))
+						{
+							shapesVector.erase (shapesVector.begin()+i);
+							break;
+						}
+					}
+					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+				}
+			break;
+		case e_Triangle:  std::cout <<"Triangle is going to be deleted....." << std::endl;
+				{
+                	for(int i = 0; i< shapesVector.size() ; i++)
+					{
+						if(shapesVector[i]->getVerification("triangle", shapeNameIn, param1, param2))
+						{
+							shapesVector.erase (shapesVector.begin()+i);
+							break;
+						}
+					}
+					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+				}
+			break;
+	}
+	return 0;
 }
 
+void ShapeHandler::printObjectDetails()
+{
+	std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+	for_each(shapesVector.begin(), shapesVector.end(), printDetail);
+}
 
+void ShapeHandler::saveLatestInfo(){
+	std::cout << "-- inside file writting --\n";
+	std::ofstream configOut;
+	std::string allRefreshedConfigs;
+	configOut.open ("data.txt", std::ofstream::out);
+
+     for(int i = 0; i< shapesVector.size(); i++)
+	{
+	   std::string tempSingleCOnfig = shapesVector[i]->getInfo();
+	   allRefreshedConfigs.append(tempSingleCOnfig);
+	}
+	std::cout << "--------------- Here goes the latest config -------------------\n";
+	std::cout << allRefreshedConfigs << std::endl;
+	std::cout << "---------------------------------------------------------------\n";
+	configOut << allRefreshedConfigs;
+	configOut.close();
+}

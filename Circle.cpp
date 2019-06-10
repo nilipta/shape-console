@@ -63,7 +63,8 @@ double Circle::perimeter(){
 	return 100;
 }
 
-bool Circle::setParams(std::string str, Shape& objCircle)
+//bool Circle::setParams(std::string str, Shape& objCircle)
+bool Circle::setParams(std::string str)
 {
 	//std::cout << "circle config = \n............>\n"<< str << "\n............."<< std::endl;
 	std::vector<std::string> vectorCircleParams;

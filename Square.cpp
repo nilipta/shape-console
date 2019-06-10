@@ -53,7 +53,8 @@ void Square::perimeter(){
 	std::cout << "Square perimeter"<< std::endl;
 }
 
-bool Square::setParams(std::string str, Shape& rect){
+//bool Square::setParams(std::string str, Shape& rect){
+bool Square::setParams(std::string str){
 	//std::cout << "Square config = \n............>\n"<< str << "\n............."<< std::endl;
 	std::vector<std::string> vectorSqrParams;
 

@@ -62,7 +62,8 @@ void Triangle::perimeter(){
 	std::cout << "Triangle parameter"<< std::endl;
 }
 
-bool Triangle::setParams(std::string str, Shape& rect){
+//bool Triangle::setParams(std::string str, Shape& rect){
+bool Triangle::setParams(std::string str){
 	//std::cout << "Triangle config = \n............>\n"<< str << "\n............."<< std::endl;
 	std::vector<std::string> vectorTriParams;
 
