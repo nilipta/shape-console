@@ -33,7 +33,9 @@ void Menu::start(){
 				break;
 			case 5:
 				std::cout << "You choose to delete .... \nPress <1> to delete a circle\nPress <2> to delete a Rectangle\nPress <3> to delete a Square\nPress <Other> throw SKIP----\n" << std::endl;
-				shapeHandler.editShapeObj();
+				{
+                	int resp = shapeHandler.editShapeObj();
+				}
 				break;
 			default:
 				std::cout << "X-X-X-X Your option did not match X-X-X-X" << std::endl;

@@ -150,7 +150,7 @@ void ShapeHandler::printObjectDetails()
 	//}
 }
 
-void ShapeHandler::editShapeObj(){
+int ShapeHandler::editShapeObj(){
 	int editChoice;
 	std::cin >> editChoice;
 	switch(editChoice)
@@ -173,21 +173,60 @@ void ShapeHandler::editShapeObj(){
 
 				for(int i = 0; i< shapesVector.size() ; i++)
 				{
-					if(shapesVector[i]->getVerification(circleNameIn, radIn, centerIn))
+					if(shapesVector[i]->getVerification("circle", circleNameIn, radIn, centerIn))
 					{
-					shapesVector.erase (shapesVector.begin()+i);
-					break;
+						shapesVector.erase (shapesVector.begin()+i);
+						break;
 					}
 				}
                 std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
 			}
 			break;
 		case 2: std::cout <<"Rectangle is going to be deleted....." << std::endl;
+			{
+            	std::string rectNameIn;
+				double length, breadth;
+				std::cout <<"Enter name of the Rectangle = " << std::endl;
+				std::cin >> rectNameIn;
+				std::cout <<"Enter length of the Rectangle = " << std::endl;
+				std::cin >> length;
+				std::cout <<"Enter breadth of the Rectangle = " << std::endl;
+				std::cin >> breadth;
+
+				for(int i = 0; i< shapesVector.size() ; i++)
+				{
+					if(shapesVector[i]->getVerification("rectangle", rectNameIn, length, breadth))
+					{
+						shapesVector.erase (shapesVector.begin()+i);
+						break;
+					}
+				}
+                std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+			}
 			break;
 		case 3: std::cout <<"Square is going to be deleted....." << std::endl;
+			{
+            	std::string sqrNameIn;
+				double length;
+				std::cout <<"Enter name of the Square = " << std::endl;
+				std::cin >> sqrNameIn;
+				std::cout <<"Enter length of the Square = " << std::endl;
+				std::cin >> length;
+
+				for(int i = 0; i< shapesVector.size() ; i++)
+				{
+					if(shapesVector[i]->getVerification("square", sqrNameIn, length))
+					{
+						shapesVector.erase (shapesVector.begin()+i);
+						break;
+					}
+				}
+                std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+			}
 			break;
 		default: std::cout <<"SKIPPING------------------------" << std::endl;
 	}
+	return 0;
 }
 
 

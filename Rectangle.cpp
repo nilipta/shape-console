@@ -1,6 +1,7 @@
 #include "Rectangle.h"
 
 Rectangle::Rectangle(std::string strLine){
+	shapeType = "rectangle";
 	std::vector<std::string> vectorRectParams;
 	std::string tempStr = strLine;
 	std::string commaSeparatedVal;
@@ -23,7 +24,7 @@ Rectangle::Rectangle(std::string strLine){
 
 	if( vectorRectParams[3].size() > 0 )
 	{
-    	shapeName =  vectorRectParams[2];
+    	shapeName =  vectorRectParams[3];
 	}
 
 }
@@ -72,13 +73,17 @@ void Rectangle::getArea(){
 	std::cout<<"The area of Rectangle is = " << length * height << std::endl;
 }
 
-bool Rectangle::getVerification(std::string nameParam = "", double param1 = 0, double param2 = 0){
-	if(param1 == length && param2 == height)
+bool Rectangle::getVerification(std::string type, std::string nameParam = "", double param1 = 0, double param2 = 0){
+	if(param1 == length && param2 == height && type==shapeType)
 	{
+		std::cout<<"param1 = " << param1 << " length = " << length << std::endl;
+		std::cout<<"param1 = " << param2 << " length = " << height << std::endl;
+		std::cout<<"The get verification MATCHED!!!!!!!" << std::endl;
         return true;
 	}
 	else
 	{
+		std::cout<<"The get verification NOT  MATCHED!!!!!!!" << std::endl;
     	return false;
 	}
 }

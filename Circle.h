@@ -13,11 +13,12 @@ class Circle:public Shape
 		static bool setParams(std::string str,Shape& circle);
 		void getInfo();
 		void getArea();
-		bool getVerification(std::string nameParam, double param1, double param2);
+		bool getVerification(std::string type, std::string nameParam, double param1, double param2);
 	private:
 		double center;
 		double radius;
 		std::string shapeName;
+		std::string shapeType;
 };
 
 #endif

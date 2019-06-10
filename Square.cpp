@@ -1,6 +1,7 @@
 #include "Rectangle.h"
 
 Square::Square(std::string strLine){
+	shapeType = "square";
 	std::vector<std::string> vectorSqrParams;
 	std::string tempStr = strLine;
 	std::string commaSeparatedVal;
@@ -63,13 +64,15 @@ void Square::getArea(){
 	std::cout<<"The area of Square this = " << length * length << std::endl;
 }
 
-bool Square::getVerification(std::string nameParam = "", double param1 = 0, double param2 = 0){
-	if(param1 == length)
+bool Square::getVerification(std::string type, std::string nameParam = "", double param1 = 0, double param2 = 0){
+	if(param1 == length && type == shapeType)
 	{
+		std::cout<<"The get verification MATCHED!!!!!!!" << std::endl;
         return true;
 	}
 	else
 	{
+		std::cout<<"The get verification NOT MATCHED!!!!!!!" << std::endl;
     	return false;
 	}
 }

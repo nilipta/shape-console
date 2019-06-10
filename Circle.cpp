@@ -2,6 +2,7 @@
 
 Circle::Circle(std::string strLine)
 {
+	shapeType = "circle";
 	//<space>config<space>
 	std::string firstConfigStr = strLine;
 	firstConfigStr = firstConfigStr.erase((firstConfigStr.find(" ",((firstConfigStr.find(" "))+1))));
@@ -98,8 +99,8 @@ void Circle::getArea(){
 	std::cout<<"The area of circle this = " << 3.14*radius*radius << std::endl;
 }
 
-bool Circle::getVerification(std::string nameParam = "", double param1 = 0, double param2 = 0){
-	if(param1 == radius && param2 == center)
+bool Circle::getVerification(std::string type, std::string nameParam = "", double param1 = 0, double param2 = 0){
+	if(param1 == radius && param2 == center && type == shapeType)
 	{
         std::cout<<"The get verification MATCHED!!!!!!!" << std::endl;
         return true;

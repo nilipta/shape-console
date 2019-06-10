@@ -25,7 +25,7 @@ class ShapeHandler{
         ShapeHandler();
 		Shape* createShape(std::string strLine, E_ShapeID shapeId);
 		void printObjectDetails();
-		void editShapeObj();
+		int editShapeObj();
 	private:
       std::vector<Shape*> shapesVector;
 	  void readFile();

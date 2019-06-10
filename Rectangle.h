@@ -9,11 +9,12 @@ class Rectangle:public Shape{
 		static bool setParams(std::string str,Shape& rect);
 		void getInfo();
 		void getArea();
-		bool getVerification(std::string nameParam, double param1, double param2);
+		bool getVerification(std::string type, std::string nameParam, double param1, double param2);
 	private:
 		double length;
 		double height;
 		std::string shapeName;
+		std::string shapeType;
 };
 
 #endif
