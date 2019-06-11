@@ -27,9 +27,8 @@ class ShapeHandler{
 	public:
 		ShapeHandler();
 		~ShapeHandler(){std::cout << "Destructing ShapeHandler Object " << std::endl;}
-		Shape* createShape(std::string strLine, E_ShapeID shapeId);
-		void addShape(E_ShapeID shapeId, std::string, double , double);
-		int editShapeObj(E_ShapeID shapeId, std::string, double , double);
+		Shape* createShape(std::string strLine, E_ShapeID shapeId, bool);
+		int deleteShapeObj(E_ShapeID shapeId, std::string, double , double);
 		void printObjectDetails();
 		void saveLatestInfo();
 	private:
@@ -39,15 +38,5 @@ class ShapeHandler{
 	  int shapeNos;
 
 };
-
-
-class printingAllDetails{
-	public:
-	void operator() (Shape* ob){
-		ob->getInfo();
-		ob->getArea();
-	}
-} printDetail;
-
 
 #endif

@@ -4,11 +4,9 @@
 class Rectangle:public Shape{
 	public:
 		Rectangle(std::string strLine);
-		void area();
-		void perimeter();
 		static bool setParams(std::string str);
 		std::string getInfo();
-		void getArea();
+		double getArea();
 		bool getVerification(std::string type, std::string nameParam, double param1, double param2);
 	private:
 		double length;

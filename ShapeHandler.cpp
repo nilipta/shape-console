@@ -21,7 +21,7 @@ void ShapeHandler::readFile()
 			if(tempFileString.find("circle") < tempFileString.find(" "))
 			{
 				//std::cout<<"Circle configuration = " << std::endl;
-				Shape* shapePtr = createShape(tempFileString, e_Circle);
+				Shape* shapePtr = createShape(tempFileString, e_Circle, false);
 				if(shapePtr != nullptr){
 					shapesVector.push_back(shapePtr);
 				}
@@ -30,7 +30,7 @@ void ShapeHandler::readFile()
 			else if(tempFileString.find("rectangle") < tempFileString.find(" "))
 			{
 				//std::cout<<"Rectangle configuration = " << std::endl;
-				Shape* shapePtr = createShape(tempFileString, e_Rectangle);
+				Shape* shapePtr = createShape(tempFileString, e_Rectangle, false);
 				if(shapePtr != nullptr){
 					shapesVector.push_back(shapePtr);
 				}
@@ -39,7 +39,7 @@ void ShapeHandler::readFile()
 			else if(tempFileString.find("square") < tempFileString.find(" "))
 			{
 				//std::cout<<"square configuration = " << std::endl;
-				Shape* shapePtr = createShape(tempFileString, e_Square);
+				Shape* shapePtr = createShape(tempFileString, e_Square, false);
 				if(shapePtr != nullptr){
 					shapesVector.push_back(shapePtr);
 				}
@@ -48,7 +48,7 @@ void ShapeHandler::readFile()
 			else if(tempFileString.find("triangle") < tempFileString.find(" "))
 			{
 				//std::cout<<"square configuration = " << std::endl;
-				Shape* shapePtr = createShape(tempFileString, e_Triangle);
+				Shape* shapePtr = createShape(tempFileString, e_Triangle, false);
 				if(shapePtr != nullptr){
 					shapesVector.push_back(shapePtr);
 				}
@@ -63,7 +63,7 @@ void ShapeHandler::readFile()
 	 }
 }
 
-Shape* ShapeHandler::createShape(std::string strLine, E_ShapeID shapeId)
+Shape* ShapeHandler::createShape(std::string strLine, E_ShapeID shapeId , bool isToCreateObjDirectly = false)
 {
 	switch(shapeId)
 	{
@@ -73,8 +73,12 @@ Shape* ShapeHandler::createShape(std::string strLine, E_ShapeID shapeId)
 					Shape* shapeObj = new Circle(strLine);
 					//shapeObj->dynamic_cast().getInfo();
 					bool isValidated = Circle::setParams(strLine);
-					if(isValidated){
+					if(isValidated && !isToCreateObjDirectly){
 						return shapeObj;
+					}
+					else if(isValidated && isToCreateObjDirectly)
+					{
+						shapesVector.push_back(shapeObj);
 					}
 					else
 					{
@@ -92,6 +96,10 @@ Shape* ShapeHandler::createShape(std::string strLine, E_ShapeID shapeId)
 					if(isValidated){
 						return shapeObj;
 					}
+					else if(isValidated && isToCreateObjDirectly)
+					{
+						shapesVector.push_back(shapeObj);
+					}
 					else
 					{
 						delete shapeObj;
@@ -107,6 +115,10 @@ Shape* ShapeHandler::createShape(std::string strLine, E_ShapeID shapeId)
 					bool isValidated = Square::setParams(strLine);
 					if(isValidated){
 						return shapeObj;
+					}
+					else if(isValidated && isToCreateObjDirectly)
+					{
+						shapesVector.push_back(shapeObj);
 					}
 					else
 					{
@@ -124,6 +136,10 @@ Shape* ShapeHandler::createShape(std::string strLine, E_ShapeID shapeId)
 					if(isValidated){
 						return shapeObj;
 					}
+					else if(isValidated && isToCreateObjDirectly)
+					{
+						shapesVector.push_back(shapeObj);
+					}
 					else
 					{
 						delete shapeObj;
@@ -135,171 +151,7 @@ Shape* ShapeHandler::createShape(std::string strLine, E_ShapeID shapeId)
 	}
 }
 
-void ShapeHandler::addShape(E_ShapeID shapeId, std::string shapeNameIn, double param1, double param2 = 0)
-{
-	std::string stringParams;
-	switch(shapeId)
-	{
-		case e_Circle:	std::cout <<"Circle is going to be Added....." << std::endl;
-				{
-					stringParams =  ("circle "+std::to_string(param1)+" "+std::to_string(param2)+" "+shapeNameIn);
-					Shape* shapeObj = new Triangle(  stringParams  );
-					bool isValidated = Triangle::setParams(stringParams);
-					if(isValidated){
-						shapesVector.push_back(shapeObj);
-					}
-					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
-				}
-			break;
-		case e_Rectangle:  std::cout <<"Rectangle is going to be Added....." << std::endl;
-				{
-                	stringParams =  ("rectangle "+std::to_string(param1)+" "+std::to_string(param2)+" "+shapeNameIn);
-					Shape* shapeObj = new Triangle(  stringParams  );
-					bool isValidated = Triangle::setParams(stringParams);
-					if(isValidated){
-						shapesVector.push_back(shapeObj);
-					}
-					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
-				}
-			break;
-		case e_Square:  std::cout <<"Square is going to be Added....." << std::endl;
-				{
-                	stringParams =  ("square "+std::to_string(param1)+" "+shapeNameIn);
-					Shape* shapeObj = new Triangle(  stringParams  );
-					bool isValidated = Triangle::setParams(stringParams);
-					if(isValidated){
-						shapesVector.push_back(shapeObj);
-					}
-					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
-				}
-			break;
-		case e_Triangle:  std::cout <<"Triangle is going to be Added....." << std::endl;
-				{
-                	stringParams =  ("triangle "+std::to_string(param1)+" "+std::to_string(param2)+" "+shapeNameIn);
-					Shape* shapeObj = new Triangle(  stringParams  );
-					bool isValidated = Triangle::setParams(stringParams);
-					if(isValidated){
-						shapesVector.push_back(shapeObj);
-					}
-					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
-				}
-			break;
-	}
-}
-
-/*int ShapeHandler::editShapeObj(){
-	int editChoice;
-	std::cin >> editChoice;
-	switch(editChoice)
-	{
-		case 1:	std::cout <<"Circle is going to be deleted....." << std::endl;
-			{
-				std::string circleNameIn;
-				double radIn, centerIn;
-				std::cout <<"Enter name of the circle <!Without space + minimum 2 character> = " << std::endl;
-				std::cin >> circleNameIn;
-				std::cout <<"Enter Radius of the circle = " << std::endl;
-				std::cin >> radIn;
-				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); radIn = 0;}
-				std::cout <<"Enter Center of the circle = " << std::endl;
-				std::cin >> centerIn;
-				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); centerIn = 0;}
-
-				/*for(std::vector<Shape*>::iterator it = shapesVector.begin(); it != shapesVector.end(); ++it ){
-					**it->getVerification(circleNameIn, radIn, centerIn);
-					//!(shapesVector[counter].getVerification(circleNameIn, radIn, centerIn)
-				} */
-
-/*				for(int i = 0; i< shapesVector.size() ; i++)
-				{
-					if(shapesVector[i]->getVerification("circle", circleNameIn, radIn, centerIn))
-					{
-						std::cout << "Erasing this entry " << std::endl;
-						shapesVector.erase (shapesVector.begin()+i);
-						break;
-					}
-				}
-                std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
-			}
-			break;
-
-		case 2: std::cout <<"Rectangle is going to be deleted....." << std::endl;
-			{
-            	std::string rectNameIn;
-				double length, breadth;
-				std::cout <<"Enter name of the Rectangle <!Without space + minimum 2 character> = " << std::endl;
-				std::cin >> rectNameIn;
-				std::cout <<"Enter length of the Rectangle = " << std::endl;
-				std::cin >> length;
-				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); length = 0;}
-				std::cout <<"Enter breadth of the Rectangle = " << std::endl;
-				std::cin >> breadth;
-				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); breadth = 0;}
-
-				for(int i = 0; i< shapesVector.size() ; i++)
-				{
-					if(shapesVector[i]->getVerification("rectangle", rectNameIn, length, breadth))
-					{
-						shapesVector.erase (shapesVector.begin()+i);
-						break;
-					}
-				}
-                std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
-			}
-			break;
-
-		case 3: std::cout <<"Square is going to be deleted....." << std::endl;
-			{
-            	std::string sqrNameIn;
-				double length;
-				std::cout <<"Enter name of the Square <!Without space + minimum 2 character> = " << std::endl;
-				std::cin >> sqrNameIn;
-				std::cout <<"Enter length of the Square = " << std::endl;
-				std::cin >> length;
-				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); length = 0;}
-
-				for(int i = 0; i< shapesVector.size() ; i++)
-				{
-					if(shapesVector[i]->getVerification("square", sqrNameIn, length))
-					{
-						shapesVector.erase (shapesVector.begin()+i);
-						break;
-					}
-				}
-                std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
-			}
-			break;
-
-		case 4: std::cout <<"Triangle is going to be deleted....." << std::endl;
-			{
-            	std::string TriangleIn;
-				double base, height;
-				std::cout <<"Enter name of the Triangle <!Without space + minimum 2 character> = " << std::endl;
-				std::cin >> TriangleIn;
-				std::cout <<"Enter length of the Triangle = " << std::endl;
-				std::cin >> base;
-				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); base = 0;}
-				std::cout <<"Enter breadth of the Triangle = " << std::endl;
-				std::cin >> height;
-				while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); height = 0;}
-
-				for(int i = 0; i< shapesVector.size() ; i++)
-				{
-					if(shapesVector[i]->getVerification("triangle", TriangleIn, base, height))
-					{
-						shapesVector.erase (shapesVector.begin()+i);
-						break;
-					}
-				}
-                std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
-			}
-			break;
-		default: std::cout <<"SKIPPING------------------------" << std::endl;
-	}
-	return 0;
-}*/
-
-int ShapeHandler::editShapeObj(E_ShapeID shapeId, std::string shapeNameIn, double param1, double param2 = 0)
+int ShapeHandler::deleteShapeObj(E_ShapeID shapeId, std::string shapeNameIn, double param1, double param2 = 0)
 {
 	std::cout <<"IN ShapeHandler::editShapeObj(...." << std::endl;
 	std::string stringShapeType;
@@ -307,6 +159,16 @@ int ShapeHandler::editShapeObj(E_ShapeID shapeId, std::string shapeNameIn, doubl
 	{
 		case e_Circle:	std::cout <<"Circle is going to be deleted....." << std::endl;
 				{
+					/*for(std::vector<Shape*>::iterator it = shapesVector.begin(); it != shapesVector.end(); ++it )
+					{
+						if((*it)->getVerification("circle", shapeNameIn, param1, param2))
+						{
+							std::cout << "Erasing this entry " << std::endl;
+							shapesVector.erase (it);
+							break;
+						}
+					}*/
+
 					for(int i = 0; i< shapesVector.size() ; i++)
 					{
 						if(shapesVector[i]->getVerification("circle", shapeNameIn, param1, param2))
@@ -365,7 +227,37 @@ int ShapeHandler::editShapeObj(E_ShapeID shapeId, std::string shapeNameIn, doubl
 void ShapeHandler::printObjectDetails()
 {
 	std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
-	for_each(shapesVector.begin(), shapesVector.end(), printDetail);
+	std::vector<Shape*> sortingVector;
+	sortingVector =  shapesVector;
+	Shape *tempPtr;
+	for(int count = 0; count < shapesVector.size() ;count++)
+	{
+		for(  std::vector<Shape*>::iterator it = sortingVector.begin(); it!=sortingVector.end();++it  )
+		{
+			//std::cout << (*it)->getArea() << std::endl;
+			if(it != sortingVector.begin())
+			{
+				//std::cout << "________________________________________________________________" << std::endl;
+				//std::cout << "first = "<< (*it)->getArea() << " second = " << (*(it-1))->getArea() << std::endl;
+				if(  ( (*it)->getArea() ) < ( (*(it-1))->getArea() )   )
+					{
+						tempPtr = *it;
+						*it = *(it-1);
+						*(it-1) = tempPtr;
+					}
+
+				//std::cout << "first = "<< (*it)->getArea() << " second = " << (*(it-1))->getArea() << std::endl;
+				//std::cout << "________________________________________________________________" << std::endl;
+			}
+		}
+	}
+	std::cout << "^^^^^^^^^^^^^^^^ AT END ^^^^^^^^^^^^^^^^^^^^^^^^^" << std::endl;
+    for(  std::vector<Shape*>::iterator it = sortingVector.begin(); it!=sortingVector.end();++it  )
+		{
+        (*it)->getInfo();
+		std::cout << "Area in Ascending order = "<< (*it)->getArea() << std::endl;
+		}
+
 }
 
 void ShapeHandler::saveLatestInfo(){
@@ -385,3 +277,5 @@ void ShapeHandler::saveLatestInfo(){
 	configOut << allRefreshedConfigs;
 	configOut.close();
 }
+
+

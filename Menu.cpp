@@ -28,37 +28,41 @@ bool Menu::startOp(){
 			case 1:
 				std::cout << "A circle is going to draw.." << std::endl;
 					{
-						std::string circleNameIn;
+						std::string circleNameIn, stringParams;
 						double radIn, centerIn;
 						circleDialog(circleNameIn, radIn, centerIn);
-						shapeHandler.addShape(e_Circle, circleNameIn, radIn, centerIn);
+						stringParams =  ("circle "+std::to_string(radIn)+" "+std::to_string(centerIn)+" "+circleNameIn);
+						shapeHandler.createShape(stringParams, e_Circle, true);
 					}
 				break;
 			case 2:
 				std::cout << "A rectangle is going to draw.." << std::endl;
 					{
-                    	std::string rectNameIn;
+						std::string rectNameIn, stringParams;
 						double length, breadth;
 						rectangleDialog(rectNameIn, length, breadth);
-						shapeHandler.addShape(e_Rectangle, rectNameIn, length, breadth);
+						stringParams =  ("rectangle "+std::to_string(length)+" "+std::to_string(breadth)+" "+rectNameIn);
+						shapeHandler.createShape(stringParams, e_Rectangle, true);
 					}
 				break;
 			case 3:
 				std::cout << "A Square is going to draw.." << std::endl;
 					{
-                    	std::string squareNameIn;
+						std::string squareNameIn, stringParams;
 						double length;
 						SquareDialog(squareNameIn, length);
-						shapeHandler.addShape(e_Square, squareNameIn, length);
+						stringParams =  ("square "+std::to_string(length)+" "+squareNameIn);
+						shapeHandler.createShape(stringParams, e_Square, true);
 					}
 				break;
 			case 4:
 				std::cout << "A Triangle is going to draw.." << std::endl;
 					{
-                    	std::string triangleNameIn;
+						std::string triangleNameIn, stringParams;
 						double base, height;
 						TrianleDialog(triangleNameIn, base, height);
-						shapeHandler.addShape(e_Triangle, triangleNameIn, base, height);
+						stringParams =  ("triangle "+std::to_string(base)+" "+std::to_string(height)+" "+triangleNameIn);
+						shapeHandler.createShape(stringParams, e_Triangle, true);
 					}
 				break;
 			case 5:
@@ -78,7 +82,7 @@ bool Menu::startOp(){
 									std::string circleNameIn;
 									double radIn, centerIn;
 									circleDialog(circleNameIn, radIn, centerIn);
-									shapeHandler.editShapeObj(e_Circle, circleNameIn, radIn, centerIn);
+									shapeHandler.deleteShapeObj(e_Circle, circleNameIn, radIn, centerIn);
 								}
 							break;
 
@@ -87,7 +91,7 @@ bool Menu::startOp(){
 									std::string rectNameIn;
 									double length, breadth;
 									rectangleDialog(rectNameIn, length, breadth);
-									shapeHandler.editShapeObj(e_Rectangle, rectNameIn, length, breadth);
+									shapeHandler.deleteShapeObj(e_Rectangle, rectNameIn, length, breadth);
 								}
 							break;
 
@@ -96,7 +100,7 @@ bool Menu::startOp(){
 									std::string squareNameIn;
 									double length;
 									SquareDialog(squareNameIn, length);
-									shapeHandler.editShapeObj(e_Square, squareNameIn, length);
+									shapeHandler.deleteShapeObj(e_Square, squareNameIn, length);
 								}
 							break;
 
@@ -105,7 +109,7 @@ bool Menu::startOp(){
 									std::string triangleNameIn;
 									double base, height;
 									TrianleDialog(triangleNameIn, base, height);
-									shapeHandler.editShapeObj(e_Triangle, triangleNameIn, base, height);
+									shapeHandler.deleteShapeObj(e_Triangle, triangleNameIn, base, height);
 								}
 							break;
 						default:	std::cout << "AInvalid options.." << std::endl;

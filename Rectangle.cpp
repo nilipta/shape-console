@@ -52,15 +52,6 @@ Rectangle::Rectangle(std::string strLine){
 
 }
 
-void Rectangle::area()
-{
-	std::cout << "Rectangle Area"<< std::endl;
-}
-
-void Rectangle::perimeter(){
-	std::cout << "Rectangle perimeter"<< std::endl;
-}
-
 //bool Rectangle::setParams(std::string str, Shape& rect){
 bool Rectangle::setParams(std::string str){
 	//std::cout << "Rectangle config = \n............>\n"<< str << "\n............."<< std::endl;
@@ -108,8 +99,9 @@ std::string Rectangle::getInfo(){
 	return thisInfo;
 }
 
-void Rectangle::getArea(){
-	std::cout<<"The area of Rectangle is = " << length * height << std::endl;
+double Rectangle::getArea(){
+//	std::cout<<"The area of Rectangle is = " << length * height << std::endl;
+	return (length * height);
 }
 
 bool Rectangle::getVerification(std::string type, std::string nameParam = "", double param1 = 0, double param2 = 0){

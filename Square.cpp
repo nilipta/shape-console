@@ -44,14 +44,6 @@ Square::Square(std::string strLine){
 	}
 }
 
-void Square::area()
-{
-	std::cout << "Square Area"<< std::endl;
-}
-
-void Square::perimeter(){
-	std::cout << "Square perimeter"<< std::endl;
-}
 
 //bool Square::setParams(std::string str, Shape& rect){
 bool Square::setParams(std::string str){
@@ -99,8 +91,9 @@ std::string Square::getInfo(){
 	return thisInfo;
 }
 
-void Square::getArea(){
-	std::cout<<"The area of Square this = " << length * length << std::endl;
+double Square::getArea(){
+//	std::cout<<"The area of Square this = " << length * length << std::endl;
+	return (length * length);
 }
 
 bool Square::getVerification(std::string type, std::string nameParam = "", double param1 = 0, double param2 = 0){

@@ -1,5 +1,6 @@
-circle 4.000000 3.500000 mycircle1
 rectangle 4.000000 7.800000 rectangle3.9
 square 4.000000 mySquare
 circle 1.000000 1.000000 No_Name
 triangle 4.000000 5.000000 japanese
+triangle 400.000000 39.000000 triangle_bermuda
+circle 4.000000 6.000000 beingCircular

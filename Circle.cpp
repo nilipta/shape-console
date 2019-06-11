@@ -53,15 +53,6 @@ Circle::Circle(std::string strLine)
 	}
 }
 
-void Circle::area(){
-	std::cout << "The Area of circle is to be printed" << std::endl;
-	double area = 3.14 * radius * radius;
-}
-
-double Circle::perimeter(){
-    std::cout << "The perimeter of circle is to be printed" << std::endl;
-	return 100;
-}
 
 //bool Circle::setParams(std::string str, Shape& objCircle)
 bool Circle::setParams(std::string str)
@@ -110,8 +101,9 @@ std::string Circle::getInfo(){
 	return thisConfig;
 }
 
-void Circle::getArea(){
-	std::cout<<"The area of circle this = " << 3.14*radius*radius << std::endl;
+double Circle::getArea(){
+	//std::cout<<"The area of circle this = " << 3.14*radius*radius << std::endl;
+	return (3.14*radius*radius);
 }
 
 bool Circle::getVerification(std::string type, std::string nameParam = "", double param1 = 0, double param2 = 0){

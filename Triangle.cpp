@@ -53,15 +53,6 @@ Triangle::Triangle(std::string strLine){
 
 }
 
-void Triangle::area()
-{
-	std::cout << "Triangle Area"<< std::endl;
-}
-
-void Triangle::perimeter(){
-	std::cout << "Triangle parameter"<< std::endl;
-}
-
 //bool Triangle::setParams(std::string str, Shape& rect){
 bool Triangle::setParams(std::string str){
 	//std::cout << "Triangle config = \n............>\n"<< str << "\n............."<< std::endl;
@@ -109,8 +100,9 @@ std::string Triangle::getInfo(){
 	return thisInfo;
 }
 
-void Triangle::getArea(){
-	std::cout<<"The area of Triangle is = " << 0.5 * base * height << std::endl;
+double Triangle::getArea(){
+//	std::cout<<"The area of Triangle is = " << 0.5 * base * height << std::endl;
+	return (0.5 * base * height);
 }
 
 bool Triangle::getVerification(std::string type, std::string nameParam = "", double param1 = 0, double param2 = 0){
