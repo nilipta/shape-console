@@ -109,16 +109,10 @@
         <None Include="Circle.h">
             <BuildOrder>11</BuildOrder>
         </None>
-        <CppCompile Include="FileHandle.cpp">
-            <BuildOrder>15</BuildOrder>
-        </CppCompile>
-        <None Include="FileHandle.h">
-            <BuildOrder>16</BuildOrder>
-        </None>
         <CppCompile Include="main.cpp">
             <BuildOrder>1</BuildOrder>
         </CppCompile>
-        <CppCompile Include="Menu.cpp">
+        <CppCompile Include="menu.cpp">
             <BuildOrder>2</BuildOrder>
         </CppCompile>
         <PCHCompile Include="Menu.h">
@@ -130,15 +124,18 @@
         <None Include="Rectangle.h">
             <BuildOrder>12</BuildOrder>
         </None>
+        <CppCompile Include="ShapeCreator.cpp">
+            <BuildOrder>14</BuildOrder>
+        </CppCompile>
+        <None Include="ShapeCreator.h">
+            <BuildOrder>15</BuildOrder>
+        </None>
         <CppCompile Include="ShapeHandler.cpp">
             <BuildOrder>3</BuildOrder>
         </CppCompile>
         <None Include="ShapeHandler.h">
             <BuildOrder>4</BuildOrder>
         </None>
-        <CppCompile Include="Shapes.cpp">
-            <BuildOrder>13</BuildOrder>
-        </CppCompile>
         <None Include="Shapes.h">
             <BuildOrder>14</BuildOrder>
         </None>
@@ -531,6 +528,7 @@
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">False</Platform>
             </Platforms>
+            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

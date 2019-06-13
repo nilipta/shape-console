@@ -1,8 +1,7 @@
-#ifndef MENU_H
-#define MENU_H
+#ifndef MENUH
+#define MENUH
 
-#include "ShapeHandler.h"
-#include "ShapeHandler.cpp"
+#include <string>
 
 class Menu {
 	public:
@@ -16,5 +15,6 @@ class Menu {
 		void TrianleDialog		(std::string &circleNameIn, double &param1, double &param2);
 
 };
+
 #endif
 

@@ -1,18 +1,9 @@
-#ifndef SHAPEHANDLER_H
-#define SHAPEHANDLER_H
+#ifndef ShapeHandlerH
+#define ShapeHandlerH
 
-#include <fstream>
-#include <sstream>
+
 #include <vector>
-#include <algorithm>
-#include "Circle.h"
-#include "Circle.cpp"
-#include "Rectangle.h"
-#include "Rectangle.cpp"
-#include "Square.h"
-#include "Square.cpp"
-#include "Triangle.h"
-#include "Triangle.cpp"
+class Shape;
 
 
 enum E_ShapeID
@@ -20,14 +11,15 @@ enum E_ShapeID
   e_Circle = 0,
   e_Rectangle,
   e_Square,
-  e_Triangle
+  e_Triangle,
+  eInvalid
 };
 
 class ShapeHandler{
 	public:
 		ShapeHandler();
-		~ShapeHandler(){std::cout << "Destructing ShapeHandler Object " << std::endl;}
-		Shape* createShape(std::string strLine, E_ShapeID shapeId, bool);
+		~ShapeHandler(){}
+		//void createShape(std::string);
 		int deleteShapeObj(E_ShapeID shapeId, std::string, double , double);
 		void printObjectDetails();
 		void saveLatestInfo();

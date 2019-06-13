@@ -1,4 +1,7 @@
 #include "Menu.h"
+#include "ShapeHandler.h"
+#include <iostream>
+
 
 void Menu::start(){
 	while(true)
@@ -31,8 +34,8 @@ bool Menu::startOp(){
 						std::string circleNameIn, stringParams;
 						double radIn, centerIn;
 						circleDialog(circleNameIn, radIn, centerIn);
-						stringParams =  ("circle "+std::to_string(radIn)+" "+std::to_string(centerIn)+" "+circleNameIn);
-						shapeHandler.createShape(stringParams, e_Circle, true);
+					   // stringParams =  ("circle "+std::to_string(radIn)+" "+std::to_string(centerIn)+" "+circleNameIn);
+						//shapeHandler.createShape(stringParams, e_Circle, true);
 					}
 				break;
 			case 2:
@@ -41,8 +44,9 @@ bool Menu::startOp(){
 						std::string rectNameIn, stringParams;
 						double length, breadth;
 						rectangleDialog(rectNameIn, length, breadth);
-						stringParams =  ("rectangle "+std::to_string(length)+" "+std::to_string(breadth)+" "+rectNameIn);
-						shapeHandler.createShape(stringParams, e_Rectangle, true);
+//						stringParams =  ("rectangle "+std::to_string(length)+" "+std::to_string(breadth)+" "+rectNameIn);
+						stringParams =  ("rectangle 5 3 myRect");
+						//shapeHandler.createShape(stringParams, e_Rectangle, true);
 					}
 				break;
 			case 3:
@@ -51,8 +55,9 @@ bool Menu::startOp(){
 						std::string squareNameIn, stringParams;
 						double length;
 						SquareDialog(squareNameIn, length);
-						stringParams =  ("square "+std::to_string(length)+" "+squareNameIn);
-						shapeHandler.createShape(stringParams, e_Square, true);
+						//stringParams =  ("square "+std::to_string(length)+" "+squareNameIn);
+                        stringParams =  ("square 4 9 mYsquare");
+						//shapeHandler.createShape(stringParams, e_Square, true);
 					}
 				break;
 			case 4:
@@ -61,8 +66,9 @@ bool Menu::startOp(){
 						std::string triangleNameIn, stringParams;
 						double base, height;
 						TrianleDialog(triangleNameIn, base, height);
-						stringParams =  ("triangle "+std::to_string(base)+" "+std::to_string(height)+" "+triangleNameIn);
-						shapeHandler.createShape(stringParams, e_Triangle, true);
+//						stringParams =  ("triangle "+std::to_string(base)+" "+std::to_string(height)+" "+triangleNameIn);
+						stringParams =  ("triangle 4 9 myTriangle");
+						//shapeHandler.createShape(stringParams, e_Triangle, true);
 					}
 				break;
 			case 5:
@@ -100,7 +106,7 @@ bool Menu::startOp(){
 									std::string squareNameIn;
 									double length;
 									SquareDialog(squareNameIn, length);
-									shapeHandler.deleteShapeObj(e_Square, squareNameIn, length);
+//									shapeHandler.deleteShapeObj(e_Square, squareNameIn, length);
 								}
 							break;
 
@@ -130,6 +136,7 @@ bool Menu::startOp(){
 		}
 
 	} while(choiceEnter > 0 && choiceEnter <=7);
+	return NULL;
 }
 
 void Menu::circleDialog(std::string &circleNameIn, double &param1, double &param2){
