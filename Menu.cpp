@@ -1,7 +1,7 @@
 #include "Menu.h"
 #include "ShapeHandler.h"
 #include <iostream>
-
+#include <string>
 
 void Menu::start(){
 	while(true)
@@ -16,7 +16,7 @@ bool Menu::startOp(){
 	ShapeHandler shapeHandler;
 	int choiceEnter;
 	do {
-		std::cout << "****************** APPLICATION *****************\n\
+		std::cout << "\n****************** APPLICATION *****************\n\
 	  A) Press <1> to draw a circle\n\
 	  B) Press <2> to draw a rectangle\n\
 	  C) Press <3> to draw a Square\n\
@@ -31,11 +31,10 @@ bool Menu::startOp(){
 			case 1:
 				std::cout << "A circle is going to draw.." << std::endl;
 					{
-						std::string circleNameIn, stringParams;
+						std::string circleNameIn;
 						double radIn, centerIn;
 						circleDialog(circleNameIn, radIn, centerIn);
-					   // stringParams =  ("circle "+std::to_string(radIn)+" "+std::to_string(centerIn)+" "+circleNameIn);
-						//shapeHandler.createShape(stringParams, e_Circle, true);
+						shapeHandler.createShape(e_Circle, circleNameIn, radIn, centerIn);
 					}
 				break;
 			case 2:
@@ -72,8 +71,21 @@ bool Menu::startOp(){
 					}
 				break;
 			case 5:
-				std::cout << "Showing all Shapes and proporties" << std::endl;
-				shapeHandler.printObjectDetails();
+				int displayChoice;
+				std::cout << "\nYou choose to display all objects with proporties = " << std::endl;
+				std::cout << "\nPress <1> to display in ascending order\nPress <2> to Display in descending order" << std::endl;
+				cin >> displayChoice;
+				{
+					switch(displayChoice)
+					{
+						case 1 :
+								shapeHandler.printObjectDetailsAscending();
+							break;
+						case 2 :
+								shapeHandler.printObjectDetailsDescending();
+							break;
+					}
+				}
 				break;
 			case 6:
 				std::cout << "You choose to delete .... \nPress <1> to delete a circle\nPress <2> to delete a Rectangle\nPress <3> to delete a Square\nPress <4> to delete a Triangle\nPress <Other> throw SKIP----\n" << std::endl;
@@ -186,3 +198,4 @@ void Menu::TrianleDialog(std::string &triNameIn, double &param1, double &param2)
 	std::cin >> param2;
 	while(std::cin.fail()){std::cin.clear(); std::cin.ignore(100, '\n'); param2 = 0;}
 }
+

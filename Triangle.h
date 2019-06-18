@@ -1,5 +1,5 @@
-#ifndef TRIANGLE_H
-#define TRIANGLE_H
+#ifndef TRIANGLEH
+#define TRIANGLEH
 
 #include "Shapes.h"
 
@@ -8,14 +8,13 @@ class Triangle:public Shape{
 		Triangle();
 		std::string getInfo();
 		double getArea();
-	    bool Triangle::getVerification(std::string type, std::string , double, double );
-
+		bool getVerification(std::string type, double, double );
+		void writeToFile(std::ofstream& obj);
 	private:
 		ifstream& parseShapeAttributes(ifstream& obj);
 		void  printAttributes(ostream& ob);
 		double base;
 		double height;
-		std::string shapeName;
 		std::string shapeType;
 };
 
@@ -23,7 +22,8 @@ ifstream& Triangle::parseShapeAttributes(ifstream& obj)
 {
 	obj >> base;
 	obj >> height;
-	obj >> shapeName;
+
+	std::cout <<"Traingle base = " << base << " Height = " << height<< std::endl;
 
 	return obj;
 }
@@ -31,7 +31,8 @@ ifstream& Triangle::parseShapeAttributes(ifstream& obj)
 void Triangle::printAttributes(ostream& ob)
 {
 	ob << "Triangle base = " << base << std::endl;
-	ob << "Triangle Height = " << base << std::endl;
+	ob << "Triangle Height = " << height << std::endl;
 }
 
 #endif
+

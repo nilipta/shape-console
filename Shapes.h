@@ -1,5 +1,5 @@
-#ifndef SHAPES_H
-#define SHAPES_H
+#ifndef SHAPESH
+#define SHAPESH
 
 #include <string>
 #include <fstream>
@@ -8,38 +8,22 @@
 class Shape{
 	public:
 		Shape(){};
-		Shape(const std::string shapeName){};
+		Shape(std::string shapeNameArg){ shapeObjName = shapeNameArg ;}
+		virtual void writeToFile(std::ofstream& obj) = 0;
+		virtual double getArea()=0;
+		virtual bool getVerification(std::string, double, double) = 0;
+		std::string	getName(){ return shapeObjName; }
 
-		void setName(){std::cout<<"Base class set name called"<<std::endl;}
-		virtual std::string getInfo() {return "NULL";}
-		virtual double getArea(){return 0;}
 		friend ifstream& operator>>( ifstream& obj,Shape& shape);
 		friend std::string operator>>(std::string str, Shape& shape);
 		friend ostream& operator<< (ostream& ob, Shape& shape);
+
 	protected:
+		std::string  shapeObjName;
+
 	private:
-		virtual ifstream& parseShapeAttributes(ifstream& obj){};
-        virtual  void printAttributes(ostream& ob){};
-	    std::string  shapeObjName;
+		virtual ifstream& parseShapeAttributes(ifstream& obj)=0;
+		virtual  void printAttributes(ostream& ob){};
 };
-
-ifstream& operator>> ( ifstream& obj,Shape& shape)
-{
-	std::cout << "Inside of the operator ovceroading.............." << std::endl;
-	shape.parseShapeAttributes(obj);
-	obj >> shape.shapeObjName;
-}
-
-std::string operator>>(std::string str, Shape& shape)
-{
-	std::cout << "Inside of the string Operator ovceroading.............." << std::endl;
-}
-
-ostream& operator<< (ostream& ob, Shape& shape)
-{
-	std::cout << "------------------------------------------------------" << std::endl;
-	//
-	shape.printAttributes(ob);
-	std::cout << "Object name = " << shape.shapeObjName << std::endl;
-}
 #endif
+

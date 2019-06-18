@@ -8,9 +8,9 @@ class Rectangle:public Shape{
 	public:
 		Rectangle();
 		static bool setParams(std::string str);
-		std::string getInfo();
 		double getArea();
-		bool getVerification(std::string, std::string, double, double);
+		bool getVerification(std::string, double, double);
+		void Rectangle::writeToFile(std::ofstream& obj);
 	private:
 		ifstream& parseShapeAttributes(ifstream& obj);
 		void printAttributes(ostream& ob);
@@ -34,4 +34,7 @@ void Rectangle::printAttributes(ostream& ob)
 	ob <<"Rectangle Height is = " << height <<std::endl;
 }
 
+
+
 #endif
+

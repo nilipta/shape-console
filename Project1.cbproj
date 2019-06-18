@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{75E0ADAF-C175-475F-941E-D7445F804832}</ProjectGuid>
+        <ProjectGuid>{4A36EED6-D2F8-4851-AD5A-A2ABCC14C655}</ProjectGuid>
         <ProjectVersion>16.1</ProjectVersion>
         <FrameworkType>None</FrameworkType>
         <Base>True</Base>
@@ -32,6 +32,12 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
         <Cfg_2>true</Cfg_2>
         <CfgParent>Base</CfgParent>
@@ -44,12 +50,12 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <IncludePath>D:\Projects\Induction\drawFigures\;$(IncludePath)</IncludePath>
-        <ProjectType>CppConsoleApplication</ProjectType>
-        <ILINK_LibraryPath>D:\Projects\Induction\drawFigures\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
-        <_TCHARMapping>char</_TCHARMapping>
-        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <SanitizedProjectName>Project1</SanitizedProjectName>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
+        <ProjectType>CppConsoleApplication</ProjectType>
+        <ILINK_LibraryPath>D:\Projects\Induction\drawFigures1\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <_TCHARMapping>char</_TCHARMapping>
+        <IncludePath>D:\Projects\Induction\drawFigures1\;$(IncludePath)</IncludePath>
         <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
         <IntermediateOutputDir>.\$(Platform)\$(Config)</IntermediateOutputDir>
         <FinalOutputDir>.\$(Platform)\$(Config)</FinalOutputDir>
@@ -59,15 +65,15 @@
         <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\release\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_OSX32)'!=''">
-        <UsePackages>true</UsePackages>
-        <DynamicRTL>true</DynamicRTL>
         <PackageImports>bindcomp;bindcompdbx;bindcompfmx;bindengine;CloudService;CustomIPTransport;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXMySQLDriver;DBXSqliteDriver;dsnap;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACIBDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACPgDriver;FireDACSqliteDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;tethering;xmlrtl;$(PackageImports)</PackageImports>
+        <DynamicRTL>true</DynamicRTL>
+        <UsePackages>true</UsePackages>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <PackageImports>adortl;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CodeSiteExpressPkg;CustomIPTransport;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXMySQLDriver;DBXSqliteDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACIBDriver;FireDACMSAccDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACPgDriver;FireDACSqliteDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;frx21;frxDB21;frxe21;frxTee21;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;Intraweb;MetropolisUILiveTile;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;svn;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;vclribbon;VclSmp;vcltouch;vclx;xmlrtl;$(PackageImports)</PackageImports>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-        <PackageImports>adortl;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CodeSiteExpressPkg;CustomIPTransport;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXMySQLDriver;DBXSqliteDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACIBDriver;FireDACMSAccDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACPgDriver;FireDACSqliteDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;frx21;frxDB21;frxe21;frxTee21;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;Intraweb;MetropolisUILiveTile;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;svn;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;vclribbon;VclSmp;vcltouch;vclx;xmlrtl;$(PackageImports)</PackageImports>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <BCC_PCHName_Clang>Menu.h</BCC_PCHName_Clang>
@@ -95,6 +101,13 @@
         <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <BCC_SmartPCHCache>false</BCC_SmartPCHCache>
+        <BCC_PCHUsage>None</BCC_PCHUsage>
+        <_TCHARMapping>wchar_t</_TCHARMapping>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>None</Manifest_File>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <Defines>NDEBUG;$(Defines)</Defines>
         <TASM_Debugging>None</TASM_Debugging>
@@ -104,52 +117,49 @@
     </PropertyGroup>
     <ItemGroup>
         <CppCompile Include="Circle.cpp">
-            <BuildOrder>6</BuildOrder>
+            <BuildOrder>0</BuildOrder>
         </CppCompile>
         <None Include="Circle.h">
-            <BuildOrder>11</BuildOrder>
+            <BuildOrder>8</BuildOrder>
         </None>
         <CppCompile Include="main.cpp">
-            <BuildOrder>1</BuildOrder>
+            <BuildOrder>6</BuildOrder>
         </CppCompile>
-        <CppCompile Include="menu.cpp">
+        <CppCompile Include="Menu.cpp">
             <BuildOrder>2</BuildOrder>
         </CppCompile>
         <PCHCompile Include="Menu.h">
             <BuildOrder>0</BuildOrder>
         </PCHCompile>
         <CppCompile Include="Rectangle.cpp">
-            <BuildOrder>5</BuildOrder>
+            <BuildOrder>1</BuildOrder>
         </CppCompile>
         <None Include="Rectangle.h">
-            <BuildOrder>12</BuildOrder>
-        </None>
-        <CppCompile Include="ShapeCreator.cpp">
-            <BuildOrder>14</BuildOrder>
-        </CppCompile>
-        <None Include="ShapeCreator.h">
-            <BuildOrder>15</BuildOrder>
+            <BuildOrder>9</BuildOrder>
         </None>
         <CppCompile Include="ShapeHandler.cpp">
-            <BuildOrder>3</BuildOrder>
+            <BuildOrder>4</BuildOrder>
         </CppCompile>
         <None Include="ShapeHandler.h">
-            <BuildOrder>4</BuildOrder>
+            <BuildOrder>12</BuildOrder>
         </None>
-        <None Include="Shapes.h">
+        <CppCompile Include="Shapes.cpp">
             <BuildOrder>14</BuildOrder>
+        </CppCompile>
+        <None Include="Shapes.h">
+            <BuildOrder>13</BuildOrder>
         </None>
         <CppCompile Include="Square.cpp">
-            <BuildOrder>7</BuildOrder>
+            <BuildOrder>5</BuildOrder>
         </CppCompile>
         <None Include="Square.h">
-            <BuildOrder>10</BuildOrder>
+            <BuildOrder>11</BuildOrder>
         </None>
         <CppCompile Include="Triangle.cpp">
-            <BuildOrder>8</BuildOrder>
+            <BuildOrder>3</BuildOrder>
         </CppCompile>
         <None Include="Triangle.h">
-            <BuildOrder>9</BuildOrder>
+            <BuildOrder>10</BuildOrder>
         </None>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
@@ -174,6 +184,10 @@
                     <ProjectProperties Name="VerifyPackages">True</ProjectProperties>
                     <ProjectProperties Name="IndexFiles">False</ProjectProperties>
                 </ProjectProperties>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k210.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp210.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                </Excluded_Packages>
             </CPlusPlusBuilder.Personality>
             <Deployment>
                 <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin64\borlndmm.dll" Class="DependencyModule">
@@ -528,7 +542,6 @@
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">False</Platform>
             </Platforms>
-            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

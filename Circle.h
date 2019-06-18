@@ -8,14 +8,13 @@ class Circle:public Shape
 {
 	public:
 		Circle();
-		Circle(std::string strLine);
-		std::string getInfo();
+		Circle(std::string, double, double);
 		double getArea();
-		bool getVerification(std::string type, std::string nameParam, double param1, double param2);
+		bool getVerification(std::string type, double param1, double param2);
+		void writeToFile(std::ofstream& obj);
 	private:
-
 		ifstream& parseShapeAttributes(ifstream& obj);
-		void printAttributes(ostream& ob);
+	    void printAttributes(ostream& ob);
 		double center;
 		double radius;
 		std::string shapeType;
@@ -23,18 +22,11 @@ class Circle:public Shape
 
 ifstream& Circle::parseShapeAttributes(ifstream& obj)
 {
-
-	//Circle would be stored in follwoing format
-	//circle radius center name(optional)
 	obj>>radius;
-	//so read radius first
 	obj>>center;
-
-   std::cout <<"Circle = radius = " << radius << " center = " << center << std::endl;
-
-	//read name which is optional
+	std::cout <<"Circle = radius = " << radius << " center = " << center << std::endl;
 	return obj;
-};
+}
 
 void Circle::printAttributes(ostream& ob)
 {

@@ -1,19 +1,15 @@
 #include "ShapeHandler.h"
 #include <algorithm>
 #include "Circle.h"
-#include "Circle.cpp"
 #include "Rectangle.h"
-#include "Rectangle.cpp"
 #include "Square.h"
-#include "Square.cpp"
 #include "Triangle.h"
-#include "Triangle.cpp"
 #include <fstream>
 #include <sstream>
+#include "Shapes.h"
 
 ShapeHandler::ShapeHandler()
 {
-	{std::cout << "Constructing ShapeHandler Object " << std::endl;}
 	configContent.erase();
 	this->readFile();
 }
@@ -21,37 +17,35 @@ ShapeHandler::ShapeHandler()
 void ShapeHandler::readFile()
 {
 	std::cout << "File reading Initializing.....(Loading).........."<<std::endl;
-	std::ifstream config("D:\\Projects\\Induction\\drawFigures\\data.txt", std::ifstream::in);
-	std::cout << "config  = "<< config <<std::endl;
+	std::ifstream config("D:\\Projects\\Induction\\drawFigures1\\data.txt", std::ifstream::in);
 	if(config)
 	{
 		std::string shape;
-        std::cout <<"Inside in debug function ..... " << std::endl;
 		while (!(config>>shape).eof())
 		{
-			std::cout << "=========================== NewLine ========================" << std::endl;
-			
+			std::cout << "======================= NewConfig ======================" << std::endl;
+
 
 			Shape* shapePtr = NULL;
 			if(shape == "circle")
 			{
-				std::cout <<"Circle matched/... " << std::endl;
+				std::cout <<"Circle matched... " << std::endl;
 				shapePtr = new Circle();
 			}
 
 			else if(shape == "rectangle")
 			{
-				std::cout <<"rectangle matched/... " << std::endl;
+				std::cout <<"rectangle matched... " << std::endl;
 				shapePtr = new Rectangle();
 			}
 			else if(shape == "square")
 			{
-				std::cout <<"square matched/... " << std::endl;
+				std::cout <<"square matched... " << std::endl;
 				shapePtr = new Square();
 			}
 			else if(shape ==  "triangle")
 			{
-				std::cout <<"triangle matched/... " << std::endl;
+				std::cout <<"triangle matched... " << std::endl;
 				shapePtr = new Triangle();
 			}
 
@@ -69,240 +63,147 @@ void ShapeHandler::readFile()
 				shapesVector.push_back(shapePtr);
 			}
 
-			std::cout << "===========================   END   ======================== \n" << std::endl;
+			std::cout << "==========================   END   ===================== \n" << std::endl;
 		}
 		config.close();
-
-		std::cout << "^^^^^^^^^^^^^^^^^^  PRINTING ALL SHAPE DETAILS  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << std::endl;
-		for(std::vector<Shape*>::iterator it = shapesVector.begin(); it != shapesVector.end(); ++it)
-		{
-		   std::cout << *(*it);
-		}
-		std::cout << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << std::endl;
+		printObjectDetails();
 	}
 }
 
 
-/*Shape* ShapeHandler::createShape(std::string strLine, E_ShapeID shapeId , bool isToCreateObjDirectly = false)
+void ShapeHandler::createShape(E_ShapeID shapeId, std::string circleNameIn, double radIn, double centerIn)
 {
-
+	Shape* shapePtr = NULL;
 	switch(shapeId)
-	{
-		case e_Circle:
-				std::cout << "ShapeHandler -> CIRCLE()" << std::endl;
-				{
-					Shape* shapeObj = new Circle();
-					strLine>>(*shapeObj);
-					//strLine>>(*dynamic_cast<Circle*>shapeObj);
-
-
-
-					//shapeObj->dynamic_cast().getInfo();
-					bool isValidated = Circle::setParams(strLine);
-					if(isValidated && !isToCreateObjDirectly){
-						return shapeObj;
-					}
-					else if(isValidated && isToCreateObjDirectly)
-					{
-						shapesVector.push_back(shapeObj);
-					}
-					else
-					{
-                        delete shapeObj;
-						shapeObj = NULL;
-						return shapeObj;
-					}
-				}
-			break;
-		case e_Rectangle:
-				std::cout << "ShapeHandler -> RECTANGLE()" << std::endl;
-				{
-					Shape* shapeObj = new Rectangle();
-					bool isValidated = Rectangle::setParams(strLine);
-					if(isValidated){
-						return shapeObj;
-					}
-					else if(isValidated && isToCreateObjDirectly)
-					{
-						shapesVector.push_back(shapeObj);
-					}
-					else
-					{
-						delete shapeObj;
-						shapeObj = NULL;
-                     	return shapeObj;
-					}
-				}
-				break;
-		case e_Square:
-				std::cout << "ShapeHandler -> SQUARE()" << std::endl;
-				{
-					Shape* shapeObj = new Square();
-					bool isValidated = Square::setParams(strLine);
-					if(isValidated){
-						return shapeObj;
-					}
-					else if(isValidated && isToCreateObjDirectly)
-					{
-						shapesVector.push_back(shapeObj);
-					}
-					else
-					{
-						delete shapeObj;
-						shapeObj = NULL;
-                     	return shapeObj;
-					}
-				}
-				break;
-		case e_Triangle:
-			   std::cout << "ShapeHandler -> TRIANGLE()" << std::endl;
-				{
-					Shape* shapeObj = new Triangle();
-					bool isValidated = Triangle::setParams(strLine);
-					if(isValidated){
-						return shapeObj;
-					}
-					else if(isValidated && isToCreateObjDirectly)
-					{
-						shapesVector.push_back(shapeObj);
-					}
-					else
-					{
-						delete shapeObj;
-						shapeObj = NULL;
-						return shapeObj;
-					}
-				}
-				break;
-	}
-	return NULL;
-}*/
+		{
+		case e_Circle :
+			{
+				shapePtr = new Circle(circleNameIn, radIn, centerIn);
+			}
+		}
+       shapesVector.push_back(shapePtr);
+}
 
 int ShapeHandler::deleteShapeObj(E_ShapeID shapeId, std::string shapeNameIn, double param1, double param2 = 0)
 {
-	std::cout <<"IN ShapeHandler::editShapeObj(...." << std::endl;
+	std::cout <<"IN ShapeHandler::DeleteShapeObj..." << std::endl;
 	std::string stringShapeType;
    	switch(shapeId)
 	{
 		case e_Circle:	std::cout <<"Circle is going to be deleted....." << std::endl;
 				{
-					/*for(std::vector<Shape*>::iterator it = shapesVector.begin(); it != shapesVector.end(); ++it )
-					{
-						if((*it)->getVerification("circle", shapeNameIn, param1, param2))
-						{
-							std::cout << "Erasing this entry " << std::endl;
-							shapesVector.erase (it);
-							break;
-						}
-					}*/
-
-					for(std::vector<Shape*>::size_type i = 0; i< shapesVector.size() ; i++)
-					{
-						//if(shapesVector[i]->getVerification("circle", shapeNameIn, param1, param2))
-						//{
-							std::cout << "Erasing this entry " << std::endl;
-							shapesVector.erase (shapesVector.begin()+i);
-							break;
-					   //	}
-					}
-					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+					stringShapeType = "circle";
 				}
 			break;
 		case e_Rectangle:  std::cout <<"Rectangle is going to be deleted....." << std::endl;
 				{
-					for(unsigned int i = 0; i< shapesVector.size() ; i++)
-					{
-						//if(shapesVector[i]->getVerification("rectangle", shapeNameIn, param1, param2))
-						//{
-							//shapesVector.erase (shapesVector.begin()+i);
-							break;
-						//}
-					}
-					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+					stringShapeType = "rectangle";
 				}
 			break;
 		case e_Square:  std::cout <<"Square is going to be deleted....." << std::endl;
 				{
-					//for(int i = 0; i< shapesVector.size() ; i++)
-					//{
-					//	if(shapesVector[i]->getVerification("square", shapeNameIn, param1))
-					//	{
-					//		shapesVector.erase (shapesVector.begin()+i);
-					//		break;
-					//	}
-					//}
-					std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+					stringShapeType = "square";
 				}
 			break;
 		case e_Triangle:  std::cout <<"Triangle is going to be deleted....." << std::endl;
 				{
-					//for(int i = 0; i< shapesVector.size() ; i++)
-					//{
-					//	if(shapesVector[i]->getVerification("triangle", shapeNameIn, param1, param2))
-					//	{
-					//		shapesVector.erase (shapesVector.begin()+i);
-					//		break;
-					//	}
-					//}
-					//std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+					stringShapeType = "triangle";
 				}
 			break;
 	}
+
+	for(std::vector<Shape*>::size_type i = 0; i< shapesVector.size() ; i++)
+	{
+		if(shapesVector[i]->getVerification(stringShapeType, param1, param2))
+		{
+			std::cout << "Erasing this entry " << std::endl;
+			shapesVector.erase (shapesVector.begin()+i);
+			break;
+		}
+	}
+    printObjectDetails();
 	return 0;
 }
 
+
 void ShapeHandler::printObjectDetails()
 {
-	std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
-	std::vector<Shape*> sortingVector;
-	sortingVector =  shapesVector;
-	Shape *tempPtr;
-	for(unsigned int count = 0; count < shapesVector.size() ;count++)
-	{
-		for(  std::vector<Shape*>::iterator it = sortingVector.begin(); it!=sortingVector.end();++it  )
-		{
-			//std::cout << (*it)->getArea() << std::endl;
-			if(it != sortingVector.begin())
-			{
-				//std::cout << "________________________________________________________________" << std::endl;
-				//std::cout << "first = "<< (*it)->getArea() << " second = " << (*(it-1))->getArea() << std::endl;
-				if(  ( (*it)->getArea() ) < ( (*(it-1))->getArea() )   )
-					{
-						tempPtr = *it;
-						*it = *(it-1);
-						*(it-1) = tempPtr;
-					}
 
-				//std::cout << "first = "<< (*it)->getArea() << " second = " << (*(it-1))->getArea() << std::endl;
-				//std::cout << "________________________________________________________________" << std::endl;
-			}
-		}
+	std::cout << "\n**********   PRINTING ALL SHAPE DETAILS   **********  |\n" << std::endl;
+	std::cout << "The vector sizeof this = " << shapesVector.size() << std::endl;
+
+	for(std::vector<Shape*>::iterator it = shapesVector.begin(); it != shapesVector.end(); ++it)
+	{
+	   std::cout << *(*it);
 	}
-	std::cout << "^^^^^^^^^^^^^^^^ AT END ^^^^^^^^^^^^^^^^^^^^^^^^^" << std::endl;
-    for(  std::vector<Shape*>::iterator it = sortingVector.begin(); it!=sortingVector.end();++it  )
-		{
-        (*it)->getInfo();
-		std::cout << "Area in Ascending order = "<< (*it)->getArea() << std::endl;
-		}
+
+	std::cout << "------------------------------------------------------|" << std::endl;
+	std::cout << "*********************     Finish      *************** |" << std::endl;
 
 }
 
-void ShapeHandler::saveLatestInfo(){
-	std::cout << "-- inside file writting --\n";
-	std::ofstream configOut;
-	std::string allRefreshedConfigs;
-	configOut.open ("data.txt", std::ofstream::out);
-
-     for(unsigned int i = 0; i< shapesVector.size(); i++)
+void ShapeHandler::saveLatestInfo()
+{
+	std::ofstream configOut("D:\\Projects\\Induction\\drawFigures1\\data.txt", std::ifstream::out, std::ifstream::app);
+	if(configOut)
+	for(std::vector<Shape*>::iterator it = shapesVector.begin(); it != shapesVector.end(); ++it)
 	{
-	   std::string tempSingleCOnfig = shapesVector[i]->getInfo();
-	   allRefreshedConfigs.append(tempSingleCOnfig);
+		(*it)->writeToFile(configOut);
 	}
-	std::cout << "--------------- Here goes the latest config -------------------\n";
-	std::cout << allRefreshedConfigs << std::endl;
-	std::cout << "---------------------------------------------------------------\n";
-	configOut << allRefreshedConfigs;
-	configOut.close();
+}
+
+
+bool ascendingFunc(Shape* objFirstIndex, Shape* objSecondIndex)
+{
+	std::cout << objSecondIndex->getArea() << std::endl;
+	if(		  (objFirstIndex->getArea())  >  (objSecondIndex->getArea())		)
+		return false;
+}
+
+bool descendingFun(Shape* objFirstIndex, Shape* objSecondIndex)
+{
+	std::cout << objSecondIndex->getArea() << std::endl;
+	if(		  (objFirstIndex->getArea())  <  (objSecondIndex->getArea())		)
+		return false;
+}
+
+void ShapeHandler::printObjectDetailsAscending()
+{
+	std::vector<Shape*> sortingVectorAscending;
+	sortingVectorAscending.assign(shapesVector.begin(), shapesVector.end());
+
+	std::sort(sortingVectorAscending.begin(), sortingVectorAscending.end(), ascendingFunc);
+	// for_each(sortingVectorAscending.begin(), sortingVectorAscending.end(), displayAll)
+   //	std::cout << "Area in vector 0 index = "<< sortingVectorAscending[0]->getArea() << std::endl;
+
+	std::cout << "--------------------   Ascending    ---------------------------------"<< std::endl;
+	for(std::vector<Shape*>::iterator it = sortingVectorAscending.begin(); it != sortingVectorAscending.end(); ++it)
+	{
+		std::cout << "******************************************************"<< std::endl;
+		std::cout << "Name of Object = "<<(*it)->getName()<< std::endl;
+		std::cout << *(*it) << std::endl;
+		std::cout << "Area of Object = \t\t\t" << (*it)->getArea() << std::endl;
+	}
+	std::cout << "\n-----------------   Ascending END   ---------------------------------"<< std::endl;
+}
+
+
+void ShapeHandler::printObjectDetailsDescending()
+{
+	std::vector<Shape*> sortingVectorAscending;
+	sortingVectorAscending.assign(shapesVector.begin(), shapesVector.end());
+
+    std::sort(sortingVectorAscending.begin(), sortingVectorAscending.end(), descendingFun);
+
+	std::cout << "--------------------   Descending    ---------------------------------"<< std::endl;
+	for(std::vector<Shape*>::iterator it = sortingVectorAscending.begin(); it != sortingVectorAscending.end(); ++it)
+	{
+		std::cout << "******************************************************"<< std::endl;
+		std::cout << "Name of Object = "<<(*it)->getName()<< std::endl;
+		std::cout << *(*it) << std::endl;
+		std::cout << "Area of Object = \t\t\t" << (*it)->getArea() << std::endl;
+	}
+	std::cout << "\n-----------------   Descending END   ---------------------------------"<< std::endl;
 }
 
 

@@ -8,13 +8,13 @@
   #define _tmain main
 #endif
 
-#include <iostream>
-#include "Menu.h"
-#include "menu.cpp"
+#include <Menu.h>
 
- int _tmain(int argc, _TCHAR* argv[]) 
+
+ int _tmain(int argc, _TCHAR* argv[])
 {
 	Menu menu;
 	menu.start();
 	return 0;
 }
+

@@ -3,17 +3,18 @@
 
 #include "Shapes.h"
 #include <string>
+#include <sstream>
 
 class Square:public Shape{
 	public:
 		Square();
-		std::string getInfo();
 		double getArea();
-		bool getVerification(std::string , std::string , double , double );
+		bool getVerification(std::string, double , double );
+		void Square::writeToFile(std::ofstream& obj);
 	private:
 		ifstream& parseShapeAttributes(ifstream& obj);
 		void printAttributes(ostream& coutObj);
-
+        std::string getInfo();
 		double length;
 		std::string shapeType;
 };
@@ -32,3 +33,4 @@ void Square::printAttributes(ostream& ob)
 }
 
 #endif
+
