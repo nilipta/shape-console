@@ -42,3 +42,9 @@ ostream& operator<< (ostream& ob, Shape& shape)
 	shape.printAttributes(ob);
 	std::cout << "Object name = " << shape.shapeObjName << std::endl;
 }
+
+
+bool Shape::SortingClass::operator() (Shape* shape1, Shape* shape2)
+{
+   return flagSortingType ?  (shape1->getArea() <  shape2->getArea())  :  (shape1->getArea() >  shape2->getArea());
+}

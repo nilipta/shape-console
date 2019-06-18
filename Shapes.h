@@ -23,7 +23,16 @@ class Shape{
 
 	private:
 		virtual ifstream& parseShapeAttributes(ifstream& obj)=0;
-		virtual  void printAttributes(ostream& ob){};
+		virtual void printAttributes(ostream& ob){};
+
+	public:
+		class SortingClass{
+			public:
+				SortingClass(bool flagArg = false) { flagSortingType =  flagArg;}
+				bool operator() (Shape* shape1, Shape* shape2);
+			private:
+				bool flagSortingType;
+		} SortingClassObject;
 };
 #endif
 

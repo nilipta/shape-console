@@ -153,28 +153,12 @@ void ShapeHandler::saveLatestInfo()
 }
 
 
-bool ascendingFunc(Shape* objFirstIndex, Shape* objSecondIndex)
-{
-	std::cout << objSecondIndex->getArea() << std::endl;
-	if(		  (objFirstIndex->getArea())  >  (objSecondIndex->getArea())		)
-		return false;
-}
-
-bool descendingFun(Shape* objFirstIndex, Shape* objSecondIndex)
-{
-	std::cout << objSecondIndex->getArea() << std::endl;
-	if(		  (objFirstIndex->getArea())  <  (objSecondIndex->getArea())		)
-		return false;
-}
-
 void ShapeHandler::printObjectDetailsAscending()
 {
 	std::vector<Shape*> sortingVectorAscending;
 	sortingVectorAscending.assign(shapesVector.begin(), shapesVector.end());
 
-	std::sort(sortingVectorAscending.begin(), sortingVectorAscending.end(), ascendingFunc);
-	// for_each(sortingVectorAscending.begin(), sortingVectorAscending.end(), displayAll)
-   //	std::cout << "Area in vector 0 index = "<< sortingVectorAscending[0]->getArea() << std::endl;
+	std::sort(sortingVectorAscending.begin(), sortingVectorAscending.end(), Shape::SortingClass(true));
 
 	std::cout << "--------------------   Ascending    ---------------------------------"<< std::endl;
 	for(std::vector<Shape*>::iterator it = sortingVectorAscending.begin(); it != sortingVectorAscending.end(); ++it)
@@ -193,7 +177,7 @@ void ShapeHandler::printObjectDetailsDescending()
 	std::vector<Shape*> sortingVectorAscending;
 	sortingVectorAscending.assign(shapesVector.begin(), shapesVector.end());
 
-    std::sort(sortingVectorAscending.begin(), sortingVectorAscending.end(), descendingFun);
+    std::sort(sortingVectorAscending.begin(), sortingVectorAscending.end(), Shape::SortingClass(false));
 
 	std::cout << "--------------------   Descending    ---------------------------------"<< std::endl;
 	for(std::vector<Shape*>::iterator it = sortingVectorAscending.begin(); it != sortingVectorAscending.end(); ++it)
