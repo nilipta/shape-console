@@ -161,13 +161,7 @@ void ShapeHandler::printObjectDetailsAscending()
 	std::sort(sortingVectorAscending.begin(), sortingVectorAscending.end(), Shape::SortingClass(true));
 
 	std::cout << "--------------------   Ascending    ---------------------------------"<< std::endl;
-	for(std::vector<Shape*>::iterator it = sortingVectorAscending.begin(); it != sortingVectorAscending.end(); ++it)
-	{
-		std::cout << "******************************************************"<< std::endl;
-		std::cout << "Name of Object = "<<(*it)->getName()<< std::endl;
-		std::cout << *(*it) << std::endl;
-		std::cout << "Area of Object = \t\t\t" << (*it)->getArea() << std::endl;
-	}
+	std::for_each(sortingVectorAscending.begin(), sortingVectorAscending.end(), Shape::SortingClass(true));
 	std::cout << "\n-----------------   Ascending END   ---------------------------------"<< std::endl;
 }
 
@@ -180,13 +174,7 @@ void ShapeHandler::printObjectDetailsDescending()
     std::sort(sortingVectorAscending.begin(), sortingVectorAscending.end(), Shape::SortingClass(false));
 
 	std::cout << "--------------------   Descending    ---------------------------------"<< std::endl;
-	for(std::vector<Shape*>::iterator it = sortingVectorAscending.begin(); it != sortingVectorAscending.end(); ++it)
-	{
-		std::cout << "******************************************************"<< std::endl;
-		std::cout << "Name of Object = "<<(*it)->getName()<< std::endl;
-		std::cout << *(*it) << std::endl;
-		std::cout << "Area of Object = \t\t\t" << (*it)->getArea() << std::endl;
-	}
+	std::for_each(sortingVectorAscending.begin(), sortingVectorAscending.end(), Shape::SortingClass(true));
 	std::cout << "\n-----------------   Descending END   ---------------------------------"<< std::endl;
 }
 

@@ -30,6 +30,7 @@ class Shape{
 			public:
 				SortingClass(bool flagArg = false) { flagSortingType =  flagArg;}
 				bool operator() (Shape* shape1, Shape* shape2);
+				void operator() (Shape* shape);
 			private:
 				bool flagSortingType;
 		} SortingClassObject;
