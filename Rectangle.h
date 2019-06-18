@@ -7,6 +7,7 @@
 class Rectangle:public Shape{
 	public:
 		Rectangle();
+		Rectangle(std::string shapeNameArg, double, double);
 		static bool setParams(std::string str);
 		double getArea();
 		bool getVerification(std::string, double, double);

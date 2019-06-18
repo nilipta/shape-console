@@ -10,6 +10,13 @@ Rectangle::Rectangle()
 }
 
 
+Rectangle::Rectangle(std::string shapeNameArg, double param1 = 0, double param2 = 0): Shape(shapeNameArg)
+{
+	length = param1;
+	height = param2;
+}
+
+
 double Rectangle::getArea(){
 //	std::cout<<"The area of Rectangle is = " << length * height << std::endl;
 	return (length * height);

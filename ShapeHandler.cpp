@@ -71,15 +71,23 @@ void ShapeHandler::readFile()
 }
 
 
-void ShapeHandler::createShape(E_ShapeID shapeId, std::string circleNameIn, double radIn, double centerIn)
+void ShapeHandler::createShape(E_ShapeID shapeId, std::string NameInArg, double param1Arg, double param2Arg)
 {
 	Shape* shapePtr = NULL;
 	switch(shapeId)
 		{
 		case e_Circle :
-			{
-				shapePtr = new Circle(circleNameIn, radIn, centerIn);
-			}
+				shapePtr = new Circle(NameInArg, param1Arg, param2Arg);
+				break;
+		case e_Rectangle :
+				shapePtr = new Rectangle(NameInArg, param1Arg, param2Arg);
+				break;
+		case e_Square :
+				shapePtr = new Square(NameInArg, param1Arg, param2Arg);
+				break;
+		case e_Triangle :
+				shapePtr = new Triangle(NameInArg, param1Arg, param2Arg);
+				break;
 		}
        shapesVector.push_back(shapePtr);
 }

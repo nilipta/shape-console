@@ -6,6 +6,13 @@ Triangle::Triangle()
 	shapeType = "triangle";
 }
 
+Triangle::Triangle(std::string shapeNameArg, double param1 = 0, double param2 = 0): Shape(shapeNameArg)
+{
+	base = param1;
+	height = param2;
+}
+
+
 std::string Triangle::getInfo(){
 	std::cout<<"------------------------------------" << std::endl;
 	std::cout<<"The information of Triangle is  =     " << std::endl;

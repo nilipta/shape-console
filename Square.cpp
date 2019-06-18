@@ -7,6 +7,11 @@ Square::Square()
 	shapeType = "square";
 }
 
+Square::Square(std::string shapeNameArg, double param1 = 0, double param2 = 0): Shape(shapeNameArg)
+{
+	length = param1;
+}
+
 std::string Square::getInfo(){
 	std::string thisInfo = " " ;// + std::to_string(length)+ " " + shapeName + "\n";
 	return thisInfo;

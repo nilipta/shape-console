@@ -6,6 +6,7 @@
 class Triangle:public Shape{
 	public:
 		Triangle();
+		Triangle(std::string shapeNameArg, double , double);
 		std::string getInfo();
 		double getArea();
 		bool getVerification(std::string type, double, double );

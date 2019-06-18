@@ -4,3 +4,7 @@ rectangle 4 7.8 rectangle3
 square 4 mySquare
 rectangle 4 4 this_rectangle
 triangle 4 5 myTriangle
+circle 10 1 unique_circle
+rectangle 10 20 uniquerect
+square 5 uniquesquare
+triangle 6 3 uniquetriangle

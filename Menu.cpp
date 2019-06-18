@@ -40,12 +40,10 @@ bool Menu::startOp(){
 			case 2:
 				std::cout << "A rectangle is going to draw.." << std::endl;
 					{
-						std::string rectNameIn, stringParams;
+						std::string rectNameIn;
 						double length, breadth;
 						rectangleDialog(rectNameIn, length, breadth);
-//						stringParams =  ("rectangle "+std::to_string(length)+" "+std::to_string(breadth)+" "+rectNameIn);
-						stringParams =  ("rectangle 5 3 myRect");
-						//shapeHandler.createShape(stringParams, e_Rectangle, true);
+						shapeHandler.createShape(e_Rectangle, rectNameIn, length, breadth);
 					}
 				break;
 			case 3:
@@ -54,9 +52,7 @@ bool Menu::startOp(){
 						std::string squareNameIn, stringParams;
 						double length;
 						SquareDialog(squareNameIn, length);
-						//stringParams =  ("square "+std::to_string(length)+" "+squareNameIn);
-                        stringParams =  ("square 4 9 mYsquare");
-						//shapeHandler.createShape(stringParams, e_Square, true);
+						shapeHandler.createShape(e_Square, squareNameIn, length, 0);
 					}
 				break;
 			case 4:
@@ -65,9 +61,7 @@ bool Menu::startOp(){
 						std::string triangleNameIn, stringParams;
 						double base, height;
 						TrianleDialog(triangleNameIn, base, height);
-//						stringParams =  ("triangle "+std::to_string(base)+" "+std::to_string(height)+" "+triangleNameIn);
-						stringParams =  ("triangle 4 9 myTriangle");
-						//shapeHandler.createShape(stringParams, e_Triangle, true);
+						shapeHandler.createShape(e_Triangle, triangleNameIn, base, height);
 					}
 				break;
 			case 5:

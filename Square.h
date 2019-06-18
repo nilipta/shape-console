@@ -8,6 +8,7 @@
 class Square:public Shape{
 	public:
 		Square();
+		Square(std::string shapeNameArg, double, double);
 		double getArea();
 		bool getVerification(std::string, double , double );
 		void Square::writeToFile(std::ofstream& obj);
